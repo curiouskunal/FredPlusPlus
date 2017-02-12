@@ -264,7 +264,7 @@ For example, if you wish to organization by business events:
 \label{ssub:appearance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LF}1. ]
-	\item 
+	\item The graphical user interface shall be visually appealing
 \end{enumerate}
 % End SubSubSection
 
@@ -272,7 +272,8 @@ For example, if you wish to organization by business events:
 \label{ssub:style_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LF}1. ]
-	\item 
+	\item The graphical user interface shall be in color
+	\item The graphical user interface shall be visual similar to cartoon
 \end{enumerate}
 % End SubSubSection
 
@@ -302,7 +303,7 @@ For example, if you wish to organization by business events:
 \label{ssub:learning_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH}1. ]
-	\item 
+	\item The application shall be easy to use by a so-called "typical" user.
 \end{enumerate}
 % End SubSubSection
 
@@ -310,7 +311,7 @@ For example, if you wish to organization by business events:
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH}1. ]
-	\item 
+	\item The application should be language ambiguous, limiting written language in favor of graphical icons, in order to be usable globally, regardless of language.
 \end{enumerate}
 % End SubSubSection
 
@@ -332,7 +333,8 @@ For example, if you wish to organization by business events:
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item 
+	\item The application will load on the majority of devices within 5 seconds of the user clicking the application icon.
+	\item The GUI thread shall not be blocked/frozen at any time for more than 3 seconds.
 \end{enumerate}
 % End SubSubSection
 
@@ -340,7 +342,10 @@ For example, if you wish to organization by business events:
 \label{ssub:safety_critical_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item 
+	\item The application should not cause the phone CPU to overheat.
+	\item The application should not "drain" a phone's battery more than 15\% faster than standard usage on that device.
+	\item The graphics of the application should not be vomit inducing or seizure inducing, or otherwise cause any physical discomfort in any of its users.
+	\item System rollbacks, updated at least weekly, should be available and deployable within 24 hours of a fatal disaster in the system. 
 \end{enumerate}
 % End SubSubSection
 
@@ -356,7 +361,7 @@ For example, if you wish to organization by business events:
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item 
+	\item The mean time between failures should be less than 5000 use hours
 \end{enumerate}
 % End SubSubSection
 
@@ -380,7 +385,8 @@ For example, if you wish to organization by business events:
 \label{ssub:scalability_or_extensibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item 
+	\item The application should be client-side based, only relying on a server to download updates.
+	\item The application should be highly scalable with an increasing user base. The scaling complexity should be, at worst, linear with respect to the size of the user base
 \end{enumerate}
 % End SubSubSection
 
@@ -402,7 +408,8 @@ For example, if you wish to organization by business events:
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
-	\item 
+	\item The system will run on Android devices with a minimum OS version of Android Lollipop.
+
 \end{enumerate}
 % End SubSubSection
 
@@ -410,7 +417,7 @@ For example, if you wish to organization by business events:
 \label{ssub:requirements_for_interfacing_with_adjacent_systems}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
-	\item 
+	\item Time will only "pass" in the application when it is running.
 \end{enumerate}
 % End SubSubSection
 
@@ -418,7 +425,8 @@ For example, if you wish to organization by business events:
 \label{ssub:productization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
-	\item 
+	\item The system should function without an Internet connection.
+	\item The application should be sold on the Google Play Store for \$3 USD
 \end{enumerate}
 % End SubSubSection
 
@@ -426,7 +434,8 @@ For example, if you wish to organization by business events:
 \label{ssub:release_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
-	\item 
+	\item The application should be in a functional public-release state by April 6, 2017.
+	\item The application should be publicly\-available in the Google Play Store.
 \end{enumerate}
 % End SubSubSection
 
@@ -440,7 +449,7 @@ For example, if you wish to organization by business events:
 \label{ssub:maintenance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS}1. ]
-	\item 
+	\item The documentation of the system should remain relevant and up to date, being updated within 5 days of any major changes made to the system.
 \end{enumerate}
 % End SubSubSection
 
