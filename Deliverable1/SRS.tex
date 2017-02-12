@@ -12,6 +12,7 @@
 \usepackage{graphicx}
 \usepackage{extarrows}
 \usepackage{setspace}
+\usepackage{gensymb}
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -323,9 +324,8 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:safety_critical_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item The application should not cause the phone CPU to overheat.
-	\item The graphics of the application should not be vomit inducing or seizure inducing, or otherwise cause any physical discomfort in any of its users.
-	\item System rollbacks, updated at least weekly, should be available and deployable within 24 hours of a fatal disaster in the system. 
+	\item The application should not cause the phone overheat to over 100\degree Celsius
+	\item The graphics of the application should not cause any physical discomfort in any of its users including seizures. 
 \end{enumerate}
 % End SubSubSection
 
@@ -333,7 +333,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:precision_or_accuracy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item 
+	\item System shall recognize input with a diameter up to 1 cm. 
 \end{enumerate}
 % End SubSubSection
 
@@ -341,7 +341,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item The mean time between failures should be less than 5000 use hours
+	\item 
 \end{enumerate}
 % End SubSubSection
 
@@ -459,7 +459,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:access_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
-	\item 
+	\item N/A
 \end{enumerate}
 % End SubSubSection
 
@@ -467,7 +467,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:integrity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
-	\item 
+	\item N/A
 \end{enumerate}
 % End SubSubSection
 
@@ -475,7 +475,8 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:privacy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
-	\item 
+	\item Application shall not store user's personal information or data
+	\item Application shall not transmit user's personal data
 \end{enumerate}
 % End SubSubSection
 
@@ -483,7 +484,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:audit_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
-	\item 
+	\item N/A
 \end{enumerate}
 % End SubSubSection
 
@@ -491,7 +492,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:immunity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
-	\item 
+	\item N/A
 \end{enumerate}
 % End SubSubSection
 
@@ -505,7 +506,8 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:cultural_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{CP}1. ]
-	\item 
+	\item Application shall not be offensive to religious or ethnic groups
+	\item Application shall not display offensive imagery to the user, or contain offensive language
 \end{enumerate}
 % End SubSubSection
 
@@ -513,7 +515,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:political_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{CP}1. ]
-	\item 
+	\item N/A
 \end{enumerate}
 % End SubSubSection
 
@@ -527,7 +529,8 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:compliance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR}1. ]
-	\item 
+	\item Application will abide by all Canadian laws
+	\item Application will not infringe on any existing intellectual property or copyright 
 \end{enumerate}
 % End SubSubSection
 
@@ -535,7 +538,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:standards_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR}1. ]
-	\item 
+	\item Application will abide by the Google Play Developer Policy standards
 \end{enumerate}
 % End SubSubSection
 
