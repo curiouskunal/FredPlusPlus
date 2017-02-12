@@ -67,7 +67,7 @@ This section of the SRS should provide an overview of the entire SRS.
 \begin{enumerate}[a)]
 	\item \textbf{Subject} - The simulated "Human Body" that is the central object in the app.
     \item \textbf{GUI} - Graphical User Interface
-    \item \textbf{Human Body Model} - An abstract module that models the behaviour of the human body and its response to various stimuli
+    \item \textbf{RNG} - Random Number Generator
     \item \textbf{Input Stimuli} - Food, Drink, Exercise, Medicine
 \end{enumerate}
 % End SubSection
@@ -222,45 +222,6 @@ The functions outlined below are assumed to be vital to the proper functionality
 		    \item When the user selects a different subsystem to be viewed, the GUI is updated to show the details of the state of the given subsystem.
 		    \item Detailed information about the state of other subsystems is not displayed and considered irrelevant, with respect to the user.
 		\end{enumerate}
-	\end{enumerate}
-	\item Legal Viewpoint
-	\begin{enumerate}
-	    \item User initiates the system for the first time
-	    \begin{enumerate}
-	        \item User is informed of legal information pertaining to the use of the software, if and where applicable
-	    \end{enumerate}
-	\end{enumerate}
-	\item Human Body Model Viewpoint
-	\begin{enumerate}
-	    \item User stimulates a subsystem
-	    	\begin{enumerate}
-        \item The list of subsystems corresponding to the human body's systems which react to the stimulant are given as:
-        \begin{enumerate}
-            \item Cardiovascular/Respiratory (heart/lungs)
-            \item Gastrointestinal (digestive)
-            \item Locomotor (musculoskeletal)
-            \item Nervous (nerves and brain)
-        \end{enumerate}
-        \item The list of input stimuli are given as:
-        \begin{enumerate}
-            \item Food
-            \item Drink
-            \item Exercise
-            \item Medicine
-        \end{enumerate}
-        \end{enumerate}
-        \item User selects to view a specific subsystem
-        \begin{enumerate}
-           \item The list of metrics tracking the overall status of the subject are given as:
-            \begin{enumerate}
-                \item Hunger
-                \item Thrist
-                \item Happiness
-                \item Weight
-                \item Health
-	        \end{enumerate} 
-        \end{enumerate}
-
 	\end{enumerate}
 	\item Software Firm Viewpoint
 	\begin{enumerate}
