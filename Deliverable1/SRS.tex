@@ -168,86 +168,103 @@ requirements.
 % End Section
 
 \section{Functional Requirements}
-\label{sec:functional_requirements}
-% Begin Section
-This section of the SRS should contain all of the software requirements to a level of detail sufficient to enable designers to design a system to satisfy those requirements, and testers to test that the system satisfies those requirements. Throughout this section, every stated requirement should be externally perceivable by users, operators, or other external systems. These requirements should include at a minimum a description of every input (stimulus) into the system, every output (response) from the system, and all functions performed by the system in response to an input or in support of an output.
 
-You normally have two options for organizing your functional requirements:
+This section outlines the functional requirements of the system, sorted first by viewpoint, and then by business events.
+The functions outlined below are assumed to be vital to the proper functionality of the system.
+
 \begin{enumerate}
-	\item Organize first by \emph{business events}, then by \emph{viewpoints}
-	\item Organize first by \emph{viewpoints}, then by \emph{business events}
-\end{enumerate}
-Choose the one which makes the most sense.
+	\item User Viewpoint
+	\begin{enumerate}
+	    \item User instantiates application for the first time
+	    \begin{enumerate}
+	        \item Relevant legal data is displayed, if applicable
+	        \item Given the option to start a "new game"
+	    \end{enumerate}
+	    \item User instantiates application, not for the first time
+	    \begin{enumerate}
+	        \item User is given the option to either start a new game, or continue an existing one
+	    \end{enumerate}
+	    \item User starts a new game
+	    \begin{enumerate}
+	        \item A brand new "subject" is created with randomized "stats"
+	        \item The subject is displayed on the screen
+	        \item Options for input stimuli are displayed
+	    \end{enumerate}
+	    \item User stimulates a subsystem
+	    \begin{enumerate}
+	        \item The subsystem changes its state based on the effects given by the stimulus
+	        \item The subsystem notifies all other subsystems of the changes made to its state, and the details of the stimulus that was given
+	        \item The other subsystems react by changing their state, based on the effects given by the stimulus, and the updated state of other
+	        subsystems
+	    \end{enumerate}
+		\item User interacts with the GUI
+		\begin{enumerate}
+			\item User interaction with the input stimuli results in a process initiation that propagates through all subsystems.
+			\item User interaction with the input stimuli has a visual indication on the GUI, if applicable, and results in at least one change to the
+			state of the subject
+			\item User interaction with any objects in the GUI has some visual indication to signify to the user that the interaction was processed
+		\end{enumerate}
+		\item Time Passes
+		\begin{enumerate}
+		    \item Changes in state of the subject as a result of time passing produce visual indications given by the GUI, assuming the user is viewing the
+		    appropriate subsystem at the appropriate time
+		\end{enumerate}
+		\item RNG triggers subsystem
+		\begin{enumerate}
+		    \item If a random number generation produces a visible result, it will be displayed in the GUI, assuming the user is viewing the
+		    appropriate subsystem at the appropriate time.
+		\end{enumerate}
+		\item User selects to view a specific subsystem
+		\begin{enumerate}
+		    \item When the user selects a different subsystem to be viewed, the GUI is updated to show the details of the state of the given subsystem.
+		    \item Detailed information about the state of other subsystems is not displayed and considered irrelevant, with respect to the user.
+		\end{enumerate}
+	\end{enumerate}
+	\item Legal Viewpoint
+	\begin{enumerate}
+	    \item User initiates the system for the first time
+	    \begin{enumerate}
+	        \item User is informed of legal information pertaining to the use of the software, if and where applicable
+	    \end{enumerate}
+	\end{enumerate}
+	\item Human Body Model Viewpoint
+	\begin{enumerate}
+	    \item User stimulates a subsystem
+	    	\begin{enumerate}
+        \item The list of subsystems corresponding to the human body's systems which react to the stimulant are given as:
+        \begin{enumerate}
+            \item Cardiovascular/Respiratory (heart/lungs)
+            \item Gastrointestinal (digestive)
+            \item Locomotor (musculoskeletal)
+            \item Nervous (nerves and brain)
+        \end{enumerate}
+        \item The list of input stimuli are given as:
+        \begin{enumerate}
+            \item Food
+            \item Drink
+            \item Exercise
+            \item Medicine
+        \end{enumerate}
+        \end{enumerate}
+        \item User selects to view a specific subsystem
+        \begin{enumerate}
+           \item The list of metrics tracking the overall status of the subject are given as:
+            \begin{enumerate}
+                \item Hunger
+                \item Thrist
+                \item Happiness
+                \item Weight
+                \item Health
+	        \end{enumerate} 
+        \end{enumerate}
 
-For example, if you wish to organization by business events:
-\begin{enumerate}[{BE}1.]
-	\item Business Event
-	\begin{enumerate}[{VP1}.1]
-		\item Viewpoint
-			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
-			\end{enumerate}
-		\item Viewpoint
-			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
-			\end{enumerate}
-		\item \dots
 	\end{enumerate}
-	\item Business Event
-	\begin{enumerate}[{VP2}.1]
-		\item Viewpoint
-			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
-			\end{enumerate}
-		\item Viewpoint
-			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
-			\end{enumerate}
-		\item \dots
-	\end{enumerate}
-\end{enumerate}
-
-\underline{OR}, if you wish to organization by viewpoints:
-\begin{enumerate}[{VP}1.]
-	\item Viewpoint 
-	\begin{enumerate}[{BE1}.1]
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item \dots
-	\end{enumerate}
-	\item Viewpoint
-	\begin{enumerate}[{BE2}.1]
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item \dots
+	\item Software Firm Viewpoint
+	\begin{enumerate}
+	    \item User instantiates application for the first time
+	    \begin{enumerate}
+	        \item Confirmation of user reading and accepting the legal information is acknowledged and stored
+	    \end{enumerate}
 	\end{enumerate}
 \end{enumerate}
 
