@@ -246,7 +246,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:appearance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LF}1. ]
-	\item The graphical user interface shall be visually appealing
+	\item The graphical user interface shall be visually appealing to a minimum of 85\% of users
 \end{enumerate}
 % End SubSubSection
 
@@ -286,6 +286,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 % Begin SubSubSection
 \begin{enumerate}[{UH}1. ]
 	\item The application shall be easy to use by someone who is familiar with operating an android device
+	\item A first time user shall not have difficulty understanding what the application does
 \end{enumerate}
 % End SubSubSection
 
@@ -293,7 +294,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH}1. ]
-	\item The application should be language ambiguous, limiting written language in favor of graphical icons, in order to be usable globally, regardless of language.
+	\item The application should be language ambiguous, limiting written language in favor of graphical icons
 \end{enumerate}
 % End SubSubSection
 
@@ -301,7 +302,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH}1. ]
-	\item 
+	\item Application shall be usable by colour blind users.
 \end{enumerate}
 % End SubSubSection
 
@@ -315,7 +316,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item The application will load on most "common" 2016 android smart phone devices within 2 seconds of the user clicking the application icon.
+	\item The application shall load on most "common" 2016 android smart phone devices within 2 seconds of the user clicking the application icon.
 	\item The user interface shall not be frozen/hung at any time for more than 3 seconds.
 \end{enumerate}
 % End SubSubSection
@@ -341,7 +342,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item 
+	\item After the application is installed on the device, it shall be available for use 24 hours per day, 365 days per year.
 \end{enumerate}
 % End SubSubSection
 
@@ -349,7 +350,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:robustness_or_fault_tolerance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item 
+	\item N/A
 \end{enumerate}
 % End SubSubSection
 
@@ -357,7 +358,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:capacity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item 
+	\item ***
 \end{enumerate}
 % End SubSubSection
 
@@ -365,8 +366,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:scalability_or_extensibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item The application should be client-side based, only relying on a server to download updates.
-	\item The application should be highly scalable with an increasing user base. The scaling complexity should be, at worst, linear with respect to the size of the user base
+	\item ***
 \end{enumerate}
 % End SubSubSection
 
@@ -374,7 +374,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:longevity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item 
+	\item The application shall be updated and supported to function on the latest version of the Android operating system for a minimum of one year after the Application is launched
 \end{enumerate}
 % End SubSubSection
 
@@ -388,7 +388,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
-	\item The system will run on Android devices with a minimum OS version of Android Lollipop.
+	\item The application shall function in all physical environments the devices the application is running on is able to operate.
 
 \end{enumerate}
 % End SubSubSection
@@ -397,7 +397,9 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:requirements_for_interfacing_with_adjacent_systems}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
-	\item Time will only "pass" in the application when it is running.
+	\item The system will run on Android devices with a minimum OS version of Android Marshmallow(6.0)
+	\item Application's time will only pass or "tick" when application is running on the device. 
+	\item The system shall not require the internet to function
 \end{enumerate}
 % End SubSubSection
 
@@ -405,8 +407,8 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:productization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
-	\item The system should function without an Internet connection.
-	\item The application should be sold on the Google Play Store for \$3 USD
+	\item The application shall be distributed for sale through the Google Play store
+	\item The application shall be distributed for free using .APK application file
 \end{enumerate}
 % End SubSubSection
 
@@ -414,8 +416,8 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:release_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
-	\item The application should be in a functional public-release state by April 6, 2017.
-	\item The application should be publicly\-available in the Google Play Store.
+	\item Every application "update" release shall not cause previous features to fail
+	\item The application should be ready for public-release by June 1, 2017
 \end{enumerate}
 % End SubSubSection
 
@@ -429,7 +431,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:maintenance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS}1. ]
-	\item The documentation of the system should remain relevant and up to date, being updated within 5 days of any major changes made to the system.
+	\item The application's documentation shall be relevant and up to date, being updated within one week of any major changes made
 \end{enumerate}
 % End SubSubSection
 
@@ -437,7 +439,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:supportability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS}1. ]
-	\item 
+	\item There shall be adequate supporting documents of the application after release
 \end{enumerate}
 % End SubSubSection
 
@@ -445,7 +447,7 @@ The functions outlined below are assumed to be vital to the proper functionality
 \label{ssub:adaptability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS}1. ]
-	\item 
+	\item The application is expected to run on Android Nougat (7.0)
 \end{enumerate}
 % End SubSubSection
 
