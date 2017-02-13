@@ -4,3 +4,4 @@ DivisionOfLabour
 *.aux
 *.log
 *.synctex.gz
+.toc
