@@ -95,12 +95,17 @@ This section should provide an overview of the overall architectural design of y
 \subsection{System Architecture}
 \label{sub:system_architecture}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Identify and explain the overall architecture of your system
-	\item Be sure to clearly state the name of the architecture
-	\item Provide the reasoning and justification of the choice
-	\item Provide a structural architecture diagram showing the relationship among the subsystems (if appropriate)
-\end{enumerate}
+
+	The overall Architecture that we will be using for this project will be the Presentation-Abstraction-Control or PAC design. This architecture’s components are decomposed in following sub sections:
+
+\textbf{Presentation}: This section is responsible for handling all of the program’s GUI interfaces, images and user interfaces. It is dependent on the abstraction section for its specific information, it does not communicate backwards towards the abstraction section.
+
+\textbf{Abstraction}: This section is responsible for all the input and output handling through the use of logic, triggers and data keeping. This section gets it’s inputs/ stimuli from the Controller section and then interprets it and when finished with it, sends the visualization of that data to the Presentation section. The bulk of the project will be put in this section.
+
+\textbf{Control}: This section is responsible for handling all of the user input for the program and sending that information to the Abstraction section. It should be able to handle all the button handling, sets, input values without doing any calculations to them, only interpreting that info and sending it to the Abstraction to be used.
+
+	Our program will use this architecture as it encourages high cohesion and low couponing through the use of modularizing the data and keeping one system responsible for logic calculations. The expected platform that we hope to implement this project on also encourages this as Android development platforms promote PAC architecture. Finally, the structure and organization of our project follows intimately follower the PAC architecture.
+
 % End SubSection
 
 \subsection{Subsystems}
