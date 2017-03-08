@@ -122,34 +122,25 @@ This section should provide an overview of the overall architectural design of y
 \label{sub:subsystems}
 % Begin SubSection
 
-Fred's subsystems are represented by human body anatomical systems.
+The analysis classes can be logically grouped based on the overall architecture
+of the system: presentation, abstraction, and control.
 
-\begin{enumerate}[1)]
-	\item Cardiovascular/Respiratory Network
-		\begin{enumerate}[a)]
-			\item Stimuli is Medicine
-			
-			\item Reacts positively to healthy food and positively to medication if ill
-			\item Reacts negatively to unhealthy food, beer, and certain catastrophic events
-		\end{enumerate}
-	\item Locomotor Network
-		\begin{enumerate}[a)]
-			\item Stimuli include: Strength training, Cardio, and lazy day
-			\item Injury Stimuli include: Fall down the stairs and Hit by car.
-			\item illness Stimuli include: Flu,
-			
-			\item Reacts positively to healthy amount of exercise and bandage
-			\item Reacts negatively to too much or too little Exercise and certain catastrophic events such as "hit by car"
-		\end{enumerate}
-	\item Gastrointestinal Network
-		\begin{enumerate}[a)]
-			\item Stimuli include: Healthy food, Unhealthily food, and Spoiled food
-			\item Stimuli include: Water, Juice, and Beer
-			
-			\item Reacts positively to unspoiled food and drink
-			\item Reacts negatively to spoiled food, too much beer and certain catastrophic events
-		\end{enumerate}
-\end{enumerate}
+\subsubsection{Presentation}
+
+The presentation subsystem is in charge of formatting and displayed the data given
+to it by the rest of the system (namely, the control).
+
+\subsubsection{Abstraction}
+
+The abstraction subsystem contains the majority of the business logic of the
+internal model of the system. It is responsible for processing input data and
+sending the result to the control.
+
+\subsubsection{Control}
+
+The control subsystem is an intermediary between the presentation and the
+abstraction. It acts to control the flow of information throughout the system,
+and provides an interface for the abstraction to access the presentation.
 
 % End SubSection
 
