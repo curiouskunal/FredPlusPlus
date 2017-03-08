@@ -61,13 +61,10 @@ The target audience of this document would be the clientele receiving the final 
 \label{sub:system_description}
 % Begin SubSection
 
-	Major Body Systems: The specific body functions that this term refers to are the Cardiovascular (Heart), Respiratory (Lungs), Gastrointestinal (Digestive), Locomotor (Musculoskeletal) and Nervous (Nerves and Brain) systems.
-
-	Project: The project will use project, application, game, and piece of software interchangeably. These words all refer to the actual project that is being developed. 
-
-	Networks: This refers to the major body systems that are featured in the project. An example of these networks being referenced would be "The high blood pressure is negativley affecting the Cardiovascular network."
-
-	Stim Sys: Short for Stimulous system, this is refers to the stimuli that will directley affect Fred's numerical values. They include the sub systems referenced in 4.2, which are the Food System, Drink System, Medication System, Exercise System and Catastrophic Event System.
+Major Body Systems: \\ The specific body functions that this term refers to are the Cardiovascular (Heart), Respiratory (Lungs), Gastrointestinal (Digestive), Locomotor (Musculoskeletal) and Nervous (Nerves and Brain) systems.\\\\
+Project: \\The project will use project, application, game, and piece of software interchangeably. These words all refer to the actual project that is being developed. \\\\
+Networks: \\This refers to the major body systems that are featured in the project. An example of these networks being referenced would be "The high blood pressure is negatively affecting the Cardiovascular network."\\\\
+Stim Sys: \\ Short for Stimulus system, this is refers to the stimuli that will directly affect Fred's numerical values. They include the sub systems referenced in 4.2, which are the Food System, Drink System, Medication System, Exercise System and Catastrophic Event System.\\\\
 
 
 % End SubSection
@@ -125,45 +122,30 @@ This section should provide an overview of the overall architectural design of y
 \label{sub:subsystems}
 % Begin SubSection
 
-Fred's subsystems are represented by 2 branches of systems, modular stimuli systems (StimSys) and responses systems which are human body anatomical systems (Networks).
-\subsubsection{StimSys}
-\begin{enumerate}[1)]
-	\item Food StimSys
-		\begin{enumerate}[a)]
-			\item Stimuli include: Healthy food, Unhealthily food, and Spoiled food
-		\end{enumerate}
-	\item Drink StimSys
-		\begin{enumerate}[a)]
-			\item Stimuli include: Water, Juice, and Beer
-		\end{enumerate}
-	\item Medication StimSys
-		\begin{enumerate}[a)]
-			\item Stimuli is Medicine
-		\end{enumerate}
-	\item Exercise StimSys
-		\begin{enumerate}[a)]
-			\item Stimuli include: Strength training, Cardio, and lazy day
-		\end{enumerate}
-	\item Random Event StimSys
-		\begin{enumerate}[a)]
-			\item Injury Stimuli include: Fall down the stairs and Hit by car.
-			\item illness Stimuli include: Flu,
-		\end{enumerate}
-\end{enumerate}
-\subsubsection{Networks}
+Fred's subsystems are represented by human body anatomical systems.
+
 \begin{enumerate}[1)]
 	\item Cardiovascular/Respiratory Network
 		\begin{enumerate}[a)]
+			\item Stimuli is Medicine
+			
 			\item Reacts positively to healthy food and positively to medication if ill
 			\item Reacts negatively to unhealthy food, beer, and certain catastrophic events
 		\end{enumerate}
 	\item Locomotor Network
 		\begin{enumerate}[a)]
+			\item Stimuli include: Strength training, Cardio, and lazy day
+			\item Injury Stimuli include: Fall down the stairs and Hit by car.
+			\item illness Stimuli include: Flu,
+			
 			\item Reacts positively to healthy amount of exercise and bandage
 			\item Reacts negatively to too much or too little Exercise and certain catastrophic events such as "hit by car"
 		\end{enumerate}
 	\item Gastrointestinal Network
 		\begin{enumerate}[a)]
+			\item Stimuli include: Healthy food, Unhealthily food, and Spoiled food
+			\item Stimuli include: Water, Juice, and Beer
+			
 			\item Reacts positively to unspoiled food and drink
 			\item Reacts negatively to spoiled food, too much beer and certain catastrophic events
 		\end{enumerate}
