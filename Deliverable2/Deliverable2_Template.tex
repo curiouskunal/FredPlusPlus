@@ -12,6 +12,7 @@
 \usepackage{graphicx}
 \usepackage{extarrows}
 \usepackage{setspace}
+\usepackage{parskip}
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -116,17 +117,32 @@ further understand the purpose of the CRC Cards.
 \section{Use Case Diagram}
 \label{sec:use_case_diagram}
 % Begin Section
-\noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth]{../Resources/UseCaseDiagram.png}}
-% End Section
 
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{../Resources/UseCaseDiagram.png}
+\caption{UseCaseDiagram}
+\end{figure}
+
+\begin{enumerate}[a)]
+	\item User wants to turn on a system
+	\item User wants to turn off a system
+	\item User wants to view a subsystem
+	\item User wants to hide a subsystem
+	\item User wants to give stimulus to the system
+\end{enumerate}
+
+% End Section
+\newpage
 \section{Analysis Class Diagram}
 \label{sec:analysis_class_diagram}
 % Begin Section
-\begin{enumerate}[a)]
-	\item Each use case appearing in the diagram should be accompanied by a text description. 
-\end{enumerate}
-\noindent\makebox[\textwidth]{\includegraphics[width=\paperwidth,scale = 0.8]{../Resources/activity class diagram.png}}
+
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{../Resources/ActivityClassDiagram.png}
+\caption{Activity Class Diagram}
+\end{figure}
 % End Section
+
 
 \section{Architectural Design}
 \label{sec:architectural_design}
@@ -140,15 +156,15 @@ into subsystems with high cohesion and low coupling.
 % Begin SubSection
 
 The overall Architecture that we will be using for this project will be the 
-Presentation-Abstraction-Control or PAC design. This architectureâ€™s components 
+Presentation-Abstraction-Control or PAC design. This architecture€™s components 
 are decomposed in following sub sections: \\
 
-\textbf{Presentation}: This section is responsible for handling all of the programâ€™s
+\textbf{Presentation}: This section is responsible for handling all of the programs€™
 GUI interfaces, images and user interfaces. It is dependent on the abstraction section
 for its specific information, it does not communicate backwards towards the abstraction section. \\
 
 \textbf{Abstraction}: This section is responsible for all the input and output
-handling through the use of logic, triggers and data keeping. This section gets itâ€™s
+handling through the use of logic, triggers and data keeping. This section gets its€™
 inputs/ stimuli from the Controller section and then interprets it and when finished
 with it, sends the visualization of that data to the Presentation section. The bulk
 of the project will be put in this section. \\
