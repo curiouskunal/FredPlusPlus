@@ -127,30 +127,31 @@ further understand the purpose of the CRC Cards.
 
 	\item \textbf{User wants to turn on a system}.
 	The nervous system will be
-	'connected' to the system. It will begin affect the other subsystems, as well as the overall
-	state according to its internal logic. Any stimuli that it includes will now be available
-	to the user. The subsystem will now be viewable.
-	Ex: The user wants to turn on the nervous system. 
+	'connected' to the system. It will begin affect the other subsystems, as 
+	well as the overall	state according to its internal logic. Any stimuli 
+	that it includes will now be available to the user. The subsystem will now 
+	be viewable. Ex: The user wants to turn on the nervous system. 
 	
 	\item \textbf{User wants to turn off a system}
 	, meaning it would be
 	'disconnected' from the system. It will cease to affect the state of any
-	of the subsystems, or the system as a whole, in any way. The user will no longer
-	be able to select stimuli that are exclusive to this system. The user will no longer
-	be able to inspect this system.
+	of the subsystems, or the system as a whole, in any way. The user will no 
+	longer be able to select stimuli that are exclusive to this system. The 
+	user will no longer	be able to inspect this system.
 	Ex: The user requests to turn off the nervous system
 	
-	\item \textbf{User wants to view a subsystem}. The subsystem will become apparent
-	in the User Interface.
-	Ex. The user selects to the view the nervous system.
+	\item \textbf{User wants to view a subsystem}. The subsystem will become 
+	visible	in the User Interface. Ex. The user selects to the view the 
+	nervous system.
 	
-	\item \textbf{User wants to hide a subsystem}. The subsystem will become hidden from
-	the user interface.
-	Ex. The user select to hide the nervous system.
+	\item \textbf{User wants to hide a subsystem}. The subsystem will become 
+	hidden from the user interface.	Ex. The user select to hide the nervous 
+	system.
 	
-	\item \textbf{User wants to give stimulus to the system}. Effects from this stimulus become
-	active and the user examines the changes in state to Fred's metrics.
-	Ex. The user selects a food stimulus and notices a decrease in Fred's hunger metric.
+	\item \textbf{User wants to give stimulus to the system}. Effects from this 
+	stimulus become	active and the user examines the changes in state to Fred's 
+	metrics. Ex. The user selects a food stimulus and notices a decrease in 
+	Fred's hunger metric.
 	
 \end{enumerate}
 
@@ -236,7 +237,8 @@ and provides an interface for the abstraction to access the presentation.
 \section{Class Responsibility Collaboration (CRC) Cards}
 \label{sec:class_responsibility_collaboration_crc_cards}
 % Begin Section
-This section should contains all of this projects CRC cards.
+This section contains all of the Class Responsibility Collaboration cards for 
+FredPlusPlus.
 
 
 
@@ -249,8 +251,9 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		Display Available Stimuli to User & Sub System I/O Controller, GUI 
-		Stimuli I/O Controller, \\
+		- Display available stimuli to User & - Sub System I/O Controller\\
+		- Send touch input to inner system & - GUI Stimuli I/O Controller\\
+		\vspace{0.4in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -263,7 +266,10 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Display activated and visible sub systems to User & - Sub System I/O 
+		Controller\\
+		- Send touch input to inner system & \\
+		\vspace{0.2in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -276,7 +282,11 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Handle stimuli GUI changes & - Stimuli GUI Change Controller\\
+		- Inform inner system when a stimulus has been effected & - Stimuli 
+		Metric Converter\\ 
+		& - Stimuli GUI\\
+		\vspace{0.3in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -289,7 +299,12 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Handle sub system GUI changes & - Sub System View Controller\\
+		- Inform inner system when a sub system has been effected & - Stimuli 
+		GUI\\ 
+		& - Sub System GUI\\
+		& - Sub System Toggle Controller\\
+		\vspace{0.1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -302,7 +317,11 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Query Data Store about Fred's current state & - Fred Attribute Data 
+		Store\\
+		- Send Fred's metrics to the Stimuli GUI Contoller & - GUI Stimuli I/O 
+		Controller\\
+		\vspace{0.4in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -315,7 +334,10 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Handle sending sub system view data to the Sub System I/O Controller 
+		& - Sub System I/O Controller\\
+		& - List of Fred's toggled sub systems\\
+		\vspace{0.2in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -328,7 +350,12 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Handles the activating and deactivating of Fred's sub systems & - 
+		Fred Attribute Data 
+		Store\\
+		& - List of Fred's toggled sub systems\\
+		& - Sub System I/O Controller\\
+		\vspace{0.1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -341,7 +368,10 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Calculate passage of time & - Fred Attribute Data 
+		Store\\
+		& - Stimuli Metric Converter\\
+		\vspace{0.5in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -354,7 +384,11 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Store which of Fred's possible sub systems are activated & - Sub 
+		System View Controller\\
+		& - Sub System Toggle Controller\\
+		& - Event Data Store\\
+		\vspace{0.2in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -367,7 +401,10 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Generate random numbers to trigger events independent of User input & 
+		- Event Data Store\\
+		& - Stimuli Metric Converter\\
+		\vspace{0.2in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -380,7 +417,12 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Calculate how a stimuli affects each metric & - Random Event 
+		Generator\\
+		& - Time Controller\\
+		& - Fred Attribute Net Result\\
+		& - GUI Stimuli I/O Controller\\
+		\vspace{0.1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -393,7 +435,11 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Sum all current factors affecting Fred into how they change Fred's 
+		state & - Stimuli Metric Converter\\
+		- Store this change in the Fred Attribute Data Store & - Fred Attribute 
+		Data Store\\
+		\vspace{0.4in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -406,7 +452,11 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Store Fred's current state & - Sub System Toggle Controller\\
+		& - Stimuli GUI change Controller\\
+		& - Fred Attribute Net Result\\
+		& - Time Controller\\
+		\vspace{0.1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -419,7 +469,10 @@ This section should contains all of this projects CRC cards.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		\vspace{1in} & \\
+		- Store the possible random events that could occur & - Random Event 
+		Generator\\
+		& - List of Fred's Toggled Sub Systems\\
+		\vspace{0.4in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
