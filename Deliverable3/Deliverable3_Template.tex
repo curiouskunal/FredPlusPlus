@@ -12,6 +12,7 @@
 \usepackage{graphicx}
 \usepackage{extarrows}
 \usepackage{setspace}
+\usepackage{float}
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -24,7 +25,7 @@
 % Title Details
 %------------------------------------------------------------------------------
 \title{Deliverable \#3}
-\author{SE 3A04: Software Design II -- Large System Design}
+\author{SE 3A04 Group 9: Fred++}
 \date{}                               
 %------------------------------------------------------------------------------
 
@@ -77,13 +78,29 @@ The rest of the document will contain the appropriate diagrams for the project. 
 \section{State Charts for Controller Classes}
 \label{sec:state_charts_for_controller_classes}
 % Begin Section
-This section should provide a state chart for each controller class for your application.
+This section should provide a state chart for each controller class for your 
+application.\\
 % End Section
 
 \section{Sequence Diagrams}
 \label{sec:sequence_diagrams}
 % Begin Section
-This section should provide a sequence diagram for each use case of your application.
+\begin{figure}[H]
+	\includegraphics[width=0.7\linewidth]{../Resources/Toggle Subsystem 
+	Sequence 
+	Diagram.png}
+	\caption{Sequence Diagram for Toggling Subsystem ON/OFF}
+\end{figure}
+\begin{figure}[H]
+	\includegraphics[width=0.7\linewidth]{../Resources/Show Subsystem Sequence 
+	Diagram.png}
+	\caption{Sequence Diagram for Showing/Hiding Subsystem}
+\end{figure}
+\begin{figure}[H]
+	\includegraphics[width=0.8\linewidth]{../Resources/Trigger Stimuli Sequence 
+	Diagram.png}
+	\caption{Sequence Diagram for Triggering Stimuli}
+\end{figure}
 % End Section
 
 \section{Detailed Class Diagram}
@@ -98,7 +115,21 @@ This section should provide a detailed class diagram for your application.
 \section{Division of Labour}
 \label{sec:division_of_labour}
 % Begin Section
-Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.
+\begin{tabular}{l c r}
+	\textbf{Name} & \textbf{Work Completed} & \textbf{Signature} \\
+	
+	Kunal Shah &  & 
+	\includegraphics[scale=0.2]{../Resources/Signature/Kunal-Sig.png} \\
+	
+	Gabriel Castagner &  &
+	\includegraphics[scale=0.2]{../Resources/Signature/Gabe-Sig.png} \\
+	
+	Victor Velechovsky &  & 
+	\includegraphics[scale=0.3]{../Resources/Signature/Vic-Sig.png} \\
+	
+	Josh Mitchell & Sequence Diagrams & 
+	\includegraphics[scale=0.2]{../Resources/Signature/Josh-Sig.png} \\
+\end{tabular}
 % End Section
 
 \end{document}
