@@ -35,10 +35,6 @@
 
 \maketitle	
 
-\tableofcontents
-\listoffigures
-
-\newpage
 
 \section{Introduction}
 \label{sec:introduction}
@@ -106,17 +102,29 @@ The rest of the document will contain the appropriate diagrams for the project. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{../Resources/show_Sub_System_Listener_Controller.png}
-	\caption{State Diagram for the Show Sub System Listener. This diagram is primarily responisble for handling the different ways the sub system's displays can toggle on and off.}
+	\caption{State Diagram for the Show Sub System Listener. This diagram is primarily responsible for handling the different ways the sub system's displays can toggle on and off.}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{../Resources/Show_Sub_System_Listener_Controller.png}
+	\includegraphics[width=0.8\linewidth]{../Resources/Show_Sub_System_Listener_Controller.png}
 	\caption{State Diagram for Stimuli Listener Controller}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{../Resources/Main_Activity_Controller.png}
+	\includegraphics[width=0.8\linewidth]{../Resources/Main_Activity_Controller.png}
 	\caption{State Diagram for Main Activity Controller}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{../Resources/Random_Event_Gen_Controller.png}
+	\caption{State Diagram for Random Event Generator Controller}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{../Resources/Fred_Net_Attribute_Result_Calculator_Controller.png}
+	\caption{State Diagram for Fred Net Attribute Result Calculator Controller}
 \end{figure}
 
 % End Section
@@ -150,7 +158,8 @@ Some of the classes differ from the activity class diagram given in the overall 
 architecture led to new insights on a more reasonable way to implement the software project.
 
 \begin{figure}[H]
-	\includegraphics[width=1.0\linewidth]{../Resources/ClassDiagram.png}
+	\centering
+	\includegraphics[scale = 0.24]{../Resources/ClassDiagram.png}
 	\caption{Detailed Class Diagram}
 \end{figure}
 % End Section
@@ -164,10 +173,10 @@ architecture led to new insights on a more reasonable way to implement the softw
 \begin{tabular}{l c r}
 	\textbf{Name} & \textbf{Work Completed} & \textbf{Signature} \\
 	
-	Kunal Shah & Introduction, Subsystem State Charts  & 
+	Kunal Shah & Introduction, State Charts for Abstraction Controller Classes  & 
 	\includegraphics[scale=0.2]{../Resources/Signature/Kunal-Sig.png} \\
 	
-	Gabriel Castagner & State Charts for Controller Classes &
+	Gabriel Castagner & State Charts for Controller Controller Classes &
 	\includegraphics[scale=0.2]{../Resources/Signature/Gabe-Sig.png} \\
 	
 	Victor Velechovsky & Detailed class diagram & 

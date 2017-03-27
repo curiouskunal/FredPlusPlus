@@ -5,4 +5,5 @@ Thumbs.db
 *.log
 *.synctex.gz
 .toc
+.lof
 Resources/Graphics
