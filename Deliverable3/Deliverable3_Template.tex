@@ -35,6 +35,11 @@
 
 \maketitle	
 
+\tableofcontents
+\listoffigures
+
+\newpage
+
 \section{Introduction}
 \label{sec:introduction}
 % Begin Section
@@ -44,9 +49,10 @@
 This document shall provide an overview of the overall Detailed Design Architecture of FredPlusPlus. This includes three types of diagrams: state charts for controller classes, sequence diagrams, and a detailed class diagram.
 
 
+
 % End SubSection
 
-\subsection{Purpose}
+\subsection*{Purpose}
 \label{sub:purpose}
 % Begin SubSection
 
@@ -55,7 +61,7 @@ The target audience of this document would be any persons designated to implemen
 inspect and/or mark this document.
 % End SubSection
 
-\subsection{System Description}
+\subsection*{System Description}
 \label{sub:system_description}
 % Begin SubSection
 The system that is mentioned in the document is a system that simulates the anatomy of the human body through the use of applying stimuli upon the character, Fred. The subsystems that the program will simulate will be the major bodily systems that were referred to in Deliverable 1 (please see the definitions for more information). The stimuli that act upon the sub systems will directly affect other subsystems. For example, if the player fed Fred a fatty food, this would increase his BMI, which would result in a higher blood pressure. Thus, the stimuli was applied to the digestive system and eventually resulted in a change in the circulatory system.
@@ -66,7 +72,7 @@ the user can use directly, such as feeding. Some changes to the networks may occ
 Finally the system has the ability to turn sub systems on and off at the discretion of the user. The reader can think of these sub systems has plug in systems where the sub systems and their respective stimuli can be unplugged from the overall system, not receiving or outputting anything to the system. An example of this would be when the user turns off the digestive system. Now the user will be unable to feed Fred in anyway, and will not be able to affect any merits of the system like hunger.
 % End SubSection
 
-\subsection{Overview}
+\subsection*{Overview}
 \label{sub:overview}
 % Begin SubSection
 The rest of the document will contain the appropriate diagrams for the project. The document will include state charts for controller classes, sequence diagrams and a detailed class diagram for each class. Theses diagrams are based on Activity Class Diagram bellow (Figure \ref{ActivityClassDiagram} has been updated since Deliverable 2), It is encouraged that the reader inspects the sections in chronological order so they have context for the class diagrams based on the overall design of the state charts and sequence diagrams.\\
