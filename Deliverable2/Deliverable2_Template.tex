@@ -240,9 +240,6 @@ and provides an interface for the abstraction to access the presentation.
 This section contains all of the Class Responsibility Collaboration cards for 
 FredPlusPlus.
 
-
-
-	%Class 1
 	\begin{table}[ht]
 		\centering
 		\begin{tabular}{|p{5cm}|p{5cm}|}
@@ -251,12 +248,16 @@ FredPlusPlus.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		- Display Fred, Stimuli \& Subsystems to User & - MainActivity\\
+		Display Fred, Stimuli \& Subsystems to User & MainActivity\\
 		\vspace{0.2in} & \\
 		\hline
-		- Send touch input to inner system & - Stimuli Listener\\
-		& - Toggle Subsystem Listener\\
-		& - Show Subsystem Listener\\
+		Send click event data from 'Toggle Subsystem' buttons & Toggle Subsystem Listener\\
+		\vspace{0.2in} & \\
+		\hline
+		Send click event data from 'View Subsystem' buttons & Show Subsystem Listener \\
+		\vspace{0.2in} & \\
+		\hline
+		Send click event data from 'Stimulus' buttons & Stimuli Listener\\
 		\vspace{0.2in} & \\
 		\hline
 		\end{tabular}
@@ -270,11 +271,10 @@ FredPlusPlus.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		- Listen for Stimuli taps from the GUI & - activity\_main\\
+		Receive click event data & activity\_main \\
 		\vspace{0.2in} & \\
 		\hline
-		- Inform inner system when a stimulus has been triggered & - Fred 
-		Attribute Net Result Calculator\\ 
+		Notify the net result calculator that a stimulus has been clicked & Fred Attribute Net Result Calc \\
 		\vspace{0.2in} & \\
 		\hline
 		\end{tabular}
@@ -289,15 +289,15 @@ FredPlusPlus.
 			\hline
 			\textbf{Responsibility:} & \textbf{Collaborators:} \\
 			\hline
-			- Listen for Toggle Subsystem taps from the GUI & - activity\_main\\
+			Listen for Toggle Subsystem taps from the GUI & activity\_main\\
 			\vspace{0.2in} & \\
 			\hline
-			- Inform inner system when a Subsystem has been toggled & - Fred 
+			Inform inner system when a Subsystem has been toggled & Fred 
 			Attribute Date Store\\ 
 			\vspace{0.2in} & \\
 			\hline
 		\end{tabular}
-	\end{table}
+	\end{table}\
 	%Class 5
 	\begin{table}[ht]
 		\centering
@@ -308,16 +308,25 @@ FredPlusPlus.
 			\hline
 			\textbf{Responsibility:} & \textbf{Collaborators:} \\
 			\hline
-			- Listen for Show Subsystem taps from the GUI & - activity\_main\\
+			Listen for Show Subsystem taps from the GUI & activity\_main\\
 			\vspace{0.2in} & \\
 			\hline
-			- Inform inner system when a Subsystem has been shown/hidden & - 
+			Inform inner system when a Subsystem has been shown/hidden &
 			Fred Attribute Data Store\\ 
 			\vspace{0.2in} & \\
 			\hline
 		\end{tabular}
 	\end{table}
 	%Class 10
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	\begin{table}[ht]
 		\centering
 		\begin{tabular}{|p{5cm}|p{5cm}|}
@@ -326,28 +335,9 @@ FredPlusPlus.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		- Generate random numbers to trigger events independent of User input & 
-		- Event Data Store\\
-		& - Stimuli Metric Converter\\
+		Generate random numbers to trigger events independent of User input & 
+		Event Data Store\\
 		\vspace{0.2in} & \\
-		\hline
-		\end{tabular}
-	\end{table}
-	%Class 11
-	\begin{table}[ht]
-		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
-		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name: Stimuli Metric Converter}} \\
-		\hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\
-		\hline
-		- Calculate how a stimuli affects each metric & - Random Event 
-		Generator\\
-		& - Time Controller\\
-		& - Fred Attribute Net Result\\
-		& - GUI Stimuli I/O Controller\\
-		\vspace{0.1in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
@@ -360,10 +350,10 @@ FredPlusPlus.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		- Sum all current factors affecting Fred into how they change Fred's 
-		state & - Stimuli Metric Converter\\
-		- Store this change in the Fred Attribute Data Store & - Fred Attribute 
-		Data Store\\
+		Determine the net effect on the system from a stimulus & Stimuli Listener\\
+		\vspace{0.2in} & \\
+		\hline
+		Change Fred's state to match the effect of the stimulus & Fred Attribute Data Store\\
 		\vspace{0.4in} & \\
 		\hline
 		\end{tabular}
@@ -377,12 +367,16 @@ FredPlusPlus.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		- Store Fred's current state & - Sub System Toggle Controller\\
-		& - Stimuli GUI change Controller\\
-		& - Fred Attribute Net Result\\
-		& - Time Controller\\
+		Receive changes to Fred's state from a change in the stimulus & Fred Attribute Net Result Calc\\
+		\vspace{0.2in} & \\
+		\hline
+		Toggle (ON or OFF) the graphical view of a subsystem & Show Subsystem Listener\\
+		\vspace{0.2in} & \\
+		\hline
+		Toggle (ON or OFF) a subsystem & Toggle Subsystem Listener\\
 		\vspace{0.1in} & \\
 		\hline
+		Send Fred's updated state to the controller to update the view & MainActivity\\
 		\end{tabular}
 	\end{table}
 	%Class 14
@@ -394,9 +388,24 @@ FredPlusPlus.
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
-		- Store the possible random events that could occur & - Random Event 
-		Generator\\
-		& - List of Fred's Toggled Sub Systems\\
+		Send data about the random events to the event generator & Random Event Generator\\
+		\vspace{0.4in} & \\
+		\hline
+		\end{tabular}
+	\end{table}
+	
+		\begin{table}[ht]
+		\centering
+		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\hline 
+		 \multicolumn{2}{|l|}{\textbf{Class Name: MainActivity}} \\
+		\hline
+		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+		\hline
+		Get updated state from Fred and prepare it for viewing & Fred Attribute Data Store\\
+		\vspace{0.4in} & \\
+		\hline
+		Send updated GUI data to the presentation so that it can update the GUI & activity\_main\\
 		\vspace{0.4in} & \\
 		\hline
 		\end{tabular}
