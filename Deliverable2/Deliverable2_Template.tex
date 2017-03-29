@@ -237,6 +237,7 @@ and provides an interface for the abstraction to access the presentation.
 
 % End Section
 	
+
 \section{Class Responsibility Collaboration (CRC) Cards}
 \label{sec:class_responsibility_collaboration_crc_cards}
 % Begin Section
@@ -245,47 +246,47 @@ FredPlusPlus.
 
 	\begin{table}[ht]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{7cm}|p{7cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: activity\_main}} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		Display Fred, Stimuli \& Subsystems to User & MainActivity\\
-		\vspace{0.2in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		Send click event data from 'Toggle Subsystem' buttons & Toggle Subsystem Listener\\
-		\vspace{0.2in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		Send click event data from 'View Subsystem' buttons & Show Subsystem Listener \\
-		\vspace{0.2in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		Send click event data from 'Stimulus' buttons & Stimuli Listener\\
-		\vspace{0.2in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 	%Class 3
 	\begin{table}[ht]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{7cm}|p{7cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Stimuli Listener}} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		Receive click event data & activity\_main \\
-		\vspace{0.2in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		Notify the net result calculator that a stimulus has been clicked & Fred Attribute Net Result Calc \\
-		\vspace{0.2in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 	%Class 4
 	\begin{table}[ht]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{7cm}|p{7cm}|}
 			\hline 
 			\multicolumn{2}{|l|}{\textbf{Class Name: Toggle Subsystem 
 			Listener}} \\
@@ -293,18 +294,18 @@ FredPlusPlus.
 			\textbf{Responsibility:} & \textbf{Collaborators:} \\
 			\hline
 			Listen for Toggle Subsystem taps from the GUI & activity\_main\\
-			\vspace{0.2in} & \\
+			\vspace{0.05in} & \\
 			\hline
 			Inform inner system when a Subsystem has been toggled & Fred 
 			Attribute Date Store\\ 
-			\vspace{0.2in} & \\
+			\vspace{0.05in} & \\
 			\hline
 		\end{tabular}
 	\end{table}\
 	%Class 5
 	\begin{table}[ht]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{7cm}|p{7cm}|}
 			\hline 
 			\multicolumn{2}{|l|}{\textbf{Class Name: Show Subsystem Listener}} 
 			\\
@@ -312,11 +313,11 @@ FredPlusPlus.
 			\textbf{Responsibility:} & \textbf{Collaborators:} \\
 			\hline
 			Listen for Show Subsystem taps from the GUI & activity\_main\\
-			\vspace{0.2in} & \\
+			\vspace{0.05in} & \\
 			\hline
 			Inform inner system when a Subsystem has been shown/hidden &
 			Fred Attribute Data Store\\ 
-			\vspace{0.2in} & \\
+			\vspace{0.05in} & \\
 			\hline
 		\end{tabular}
 	\end{table}
@@ -332,7 +333,7 @@ FredPlusPlus.
 	
 	\begin{table}[ht]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{7cm}|p{7cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Random Event Generator}} \\
 		\hline
@@ -340,79 +341,82 @@ FredPlusPlus.
 		\hline
 		Generate random numbers to trigger events independent of User input & 
 		Event Data Store\\
-		\vspace{0.2in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 	%Class 12
 	\begin{table}[ht]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{7cm}|p{7cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Fred Attribute Net Result}} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		Determine the net effect on the system from a stimulus & Stimuli Listener\\
-		\vspace{0.2in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		Change Fred's state to match the effect of the stimulus & Fred Attribute Data Store\\
-		\vspace{0.4in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 	%Class 13
 	\begin{table}[ht]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{7cm}|p{7cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Fred Attribute Data Store}} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		Receive changes to Fred's state from a change in the stimulus & Fred Attribute Net Result Calc\\
-		\vspace{0.2in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		Toggle (ON or OFF) the graphical view of a subsystem & Show Subsystem Listener\\
-		\vspace{0.2in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		Toggle (ON or OFF) a subsystem & Toggle Subsystem Listener\\
-		\vspace{0.1in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		Send Fred's updated state to the controller to update the view & MainActivity\\
+		\vspace{0.05in} & \\
+		\hline
 		\end{tabular}
 	\end{table}
 	%Class 14
 	\begin{table}[ht]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{7cm}|p{7cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: Event Data Store}} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		Send data about the random events to the event generator & Random Event Generator\\
-		\vspace{0.4in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
 	
-		\begin{table}[ht]
+	\begin{table}[ht]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
+		\begin{tabular}{|p{7cm}|p{7cm}|}
 		\hline 
 		 \multicolumn{2}{|l|}{\textbf{Class Name: MainActivity}} \\
 		\hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
 		\hline
 		Get updated state from Fred and prepare it for viewing & Fred Attribute Data Store\\
-		\vspace{0.4in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		Send updated GUI data to the presentation so that it can update the GUI & activity\_main\\
-		\vspace{0.4in} & \\
+		\vspace{0.05in} & \\
 		\hline
 		\end{tabular}
 	\end{table}
+
 
 % End Section
 \cleardoublepage
