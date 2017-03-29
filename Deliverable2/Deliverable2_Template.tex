@@ -80,7 +80,7 @@ for example, a random chance of Fred being hit by a car.
 \label{sub:system_description}
 % Begin SubSection
 
-\textbf{Body Systems:} The specific anatomical systems that this document refers to are the:
+\textbf{Systems (Body Systems):} The specific anatomical systems that this document refers to are the:
 \begin{enumerate}
 	\item Cardiovascular (Heart)
 	\item Respiratory (Lungs)
@@ -90,11 +90,11 @@ for example, a random chance of Fred being hit by a car.
 \end{enumerate} 
 \vspace{3mm}
 
-\textbf{BMI:} Body Mass Index is a calculation to measure a person's body fat using height and weight. 
+\textbf{BMI:} Body Mass Index: a calculation to measure a person's body fat using height and weight. 
 
 \vspace{3mm}
 
-\textbf{Project:} The project will use project, application, game, and piece of software interchangeably.
+\textbf{Project:} The project will use the terms \textit{project, application, game,} and \textit{piece of software} interchangeably.
 These words all refer to the actual project that is being developed.
 
 % End SubSection
@@ -123,19 +123,19 @@ further understand the purpose of the CRC Cards.
 
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{../Resources/UseCaseDiagram.png}
-\caption{UseCaseDiagram}
+\caption{Use Case Diagram}
 \end{figure}
 
 \begin{enumerate}[a)]
 
-	\item \textbf{User wants to turn on a system}.
+	\item \textbf{User requests to turn on a system}.
 	The nervous system will be
 	'connected' to the system. It will begin affect the other subsystems, as 
 	well as the overall	state according to its internal logic. Any stimuli 
 	that it includes will now be available to the user. The subsystem will now 
 	be viewable. Ex: The user wants to turn on the nervous system. 
 	
-	\item \textbf{User wants to turn off a system}
+	\item \textbf{User requests to turn off a system}
 	, meaning it would be
 	'disconnected' from the system. It will cease to affect the state of any
 	of the subsystems, or the system as a whole, in any way. The user will no 
@@ -143,15 +143,15 @@ further understand the purpose of the CRC Cards.
 	user will no longer	be able to inspect this system.
 	Ex: The user requests to turn off the nervous system
 	
-	\item \textbf{User wants to view a subsystem}. The subsystem will become 
+	\item \textbf{User requests to view a subsystem}. The subsystem will become 
 	visible	in the User Interface. Ex. The user selects to the view the 
 	nervous system.
 	
-	\item \textbf{User wants to hide a subsystem}. The subsystem will become 
+	\item \textbf{User requests to hide a subsystem}. The subsystem will become 
 	hidden from the user interface.	Ex. The user select to hide the nervous 
 	system.
 	
-	\item \textbf{User wants to give stimulus to the system}. Effects from this 
+	\item \textbf{User requests to give stimulus to the system}. Effects from this 
 	stimulus become	active and the user examines the changes in state to Fred's 
 	metrics. Ex. The user selects a food stimulus and notices a decrease in 
 	Fred's hunger metric.
@@ -185,6 +185,11 @@ FredPlusPlus showing the division of the system into subsystems.
 The overall Architecture that we will be using for this project will be the 
 Presentation-Abstraction-Control or PAC design. This architecture€™s components 
 are decomposed in following sub sections: \\
+
+A similar MVC architecture could have been used, given that our system has essentially only
+one presentation. However, PAC was chosen due to the fact that our presentation is a
+"dummy-class". It is an xml file that contains no logic or code - it only specifies the layout and
+format of the data that is given by the controller.\\
 
 \textbf{Presentation}: This section is responsible for handling all of the programs€™
 GUI interfaces, images and user interfaces. It is dependent on the abstraction section
