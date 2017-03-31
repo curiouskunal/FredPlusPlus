@@ -12,16 +12,83 @@ public class FredAttributeDataStore {
 
     private Texture fredBase;
 
-    private ArrayList<System> enabledSystems = new ArrayList<System>();
-    private CardiovascularSystem cardio = new CardiovascularSystem();
+    private ArrayList<Metric> metrics = new ArrayList<Metric>();
+    private ArrayList<System> subSystems = new ArrayList<System>();
+    private ArrayList<Stimulus> availableStimuli = new ArrayList<Stimulus>();
+
+    private CardiovascularSystem cardiovascular = new CardiovascularSystem();
+    private NervousSystem nervous = new NervousSystem();
+    private LocomotorSystem locomotor = new LocomotorSystem();
+    private DigestiveSystem digestive = new DigestiveSystem();
 
     public FredAttributeDataStore(){
         fredBase = new Texture("FredBaseTemplate.png");
-        enabledSystems.add(cardio);
+        subSystems.add(cardiovascular);
+        subSystems.add(nervous);
+        subSystems.add(locomotor);
+        subSystems.add(digestive);
     }
 
-    public ArrayList<System> getEnabledSystems(){
-        return enabledSystems;
+    public ArrayList<Metric> getMetrics(){
+        return metrics;
+    }
+
+    public ArrayList<System> getActivatedSystems(){
+        ArrayList<System> active = new ArrayList<System>();
+
+        for (System sys : subSystems){
+            if (sys.getIsActivated()){
+                sys.activate();
+            }
+        }
+        return active;
+    }
+
+    public ArrayList<System> getVisibleSystems(){
+        ArrayList<System> visible = new ArrayList<System>();
+
+        for (System sys : subSystems){
+            if (sys.getIsVisible()){
+                visible.add(sys);
+            }
+        }
+        return visible;
+    }
+
+    public ArrayList<Stimulus> getAvailableStimuli(){
+        return availableStimuli;
+    }
+
+    public void turnOnSystem(String sysName){
+        for (System sys : subSystems){
+            if (sysName == sys.getName()){
+                sys.activate();
+            }
+        }
+    }
+
+    public void turnOffSystem(String sysName){
+        for (System sys : subSystems){
+            if (sysName == sys.getName()){
+                sys.deactivate();
+            }
+        }
+    }
+
+    public void showSystem(String sysName){
+        for (System sys : subSystems){
+            if (sysName == sys.getName()){
+                sys.show();
+            }
+        }
+    }
+
+    public void hideSystem(String sysName){
+        for (System sys : subSystems){
+            if (sysName == sys.getName()){
+                sys.hide();
+            }
+        }
     }
 
     public Texture getBaseTexture(){
@@ -30,7 +97,7 @@ public class FredAttributeDataStore {
 
     public void dispose(){
         fredBase.dispose();
-        for (System sys: enabledSystems) {
+        for (System sys: subSystems) {
             sys.dispose();
         }
     }

@@ -1,6 +1,9 @@
 package fred.plusplus;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import java.util.ArrayList;
 
 /**
  * Created by Josh on 31/03/2017.
@@ -14,14 +17,17 @@ public class activity_main {
         batch = new SpriteBatch();
     }
 
-    public void draw(FredAttributeDataStore fred){
+    public void draw(Texture texture, int x, int y){
         batch.begin();
-        //Draw each of Fred's enabled SubSystems
-        batch.draw(fred.getBaseTexture(), 0, 0);
-        for (System sys: fred.getEnabledSystems()){
+        batch.draw(texture, x, y);
+        batch.end();
+    }
+
+    public void drawSubSystems(ArrayList<System> systems){
+        batch.begin();
+        for (System sys : systems) {
             batch.draw(sys.getTexture(), 0, 0);
         }
-
         batch.end();
     }
 

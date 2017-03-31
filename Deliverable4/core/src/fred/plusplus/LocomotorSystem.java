@@ -8,11 +8,11 @@ import java.util.ArrayList;
  * Created by Josh on 31/03/2017.
  */
 
-public class CardiovascularSystem extends System {
+public class LocomotorSystem extends System {
 
-    public CardiovascularSystem(){
+    public LocomotorSystem(){
         img = new Texture("FredSkeleton.png");
-        name = "cardiovascular";
+        name = "locomotor";
     }
 
     public ArrayList<MetricChange> reactToStimuli(Stimulus s){
