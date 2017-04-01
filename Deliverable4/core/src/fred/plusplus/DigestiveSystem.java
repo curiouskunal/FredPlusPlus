@@ -16,7 +16,9 @@ public class DigestiveSystem extends System {
     }
 
     public ArrayList<MetricChange> reactToStimuli(Stimulus s){
-        return new ArrayList<MetricChange>();
+        ArrayList<MetricChange> changes = new ArrayList<MetricChange>();
+
+        return changes;
     }
 
 }

@@ -5,7 +5,8 @@ package fred.plusplus;
  */
 
 public class Stimulus {
-    String name;
+
+    public String name;
 
     public Stimulus(String name){
         this.name = name;

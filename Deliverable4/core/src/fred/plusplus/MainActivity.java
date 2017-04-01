@@ -7,16 +7,16 @@ import com.badlogic.gdx.graphics.GL20;
 
 public class MainActivity extends ApplicationAdapter {
 
-	activity_main view;
-	FredAttributeDataStore fred;
+	MainView view;
+	Fred fred;
 
 	InputMultiplexer multiplexer;
 
 	@Override
 	//create() gets called once, at the start of the game launch
 	public void create () {
-		view = new activity_main();
-		fred = new FredAttributeDataStore();
+		view = new MainView();
+		fred = new Fred();
 
 		//This is how libGDX handles multiple different input listeners
 		//Whenever a touch event happens, it will pass it to the first listener

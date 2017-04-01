@@ -11,8 +11,6 @@ public abstract class System {
 
     protected Texture img;
     protected String name;
-    protected boolean isActivated = true;
-    protected boolean isVisible = true;
     protected ArrayList<Metric> listOfMetrics;
 
     abstract ArrayList<MetricChange> reactToStimuli(Stimulus s);
@@ -20,32 +18,9 @@ public abstract class System {
     public Texture getTexture(){
         return img;
     }
-
     public String getName(){ return name; }
 
-    public boolean getIsActivated(){
-        return isActivated;
-    }
-
-    public boolean getIsVisible(){
-        return isVisible;
-    }
-
-    public void activate(){
-        isActivated = true;
-    }
-
-    public void deactivate(){
-        isActivated = false;
-    }
-
-    public void show(){
-        isVisible = true;
-    }
-
-    public void hide(){
-        isVisible = false;
-    }
+    public ArrayList<Metric> listOfMetrics() { return listOfMetrics; }
 
     public void dispose(){
         img.dispose();
