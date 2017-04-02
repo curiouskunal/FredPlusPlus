@@ -23,7 +23,7 @@ public class NetResultCalc {
             for (MetricChange mc : changes) {
                 for (Metric m : metrics) {
                     if (m.name.equals(mc.metric)) {
-                        m.value += mc.delta;
+                        m.increment(mc.delta);
                     }
                 }
             }
