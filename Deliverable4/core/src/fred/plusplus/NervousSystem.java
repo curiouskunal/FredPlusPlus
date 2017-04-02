@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class NervousSystem extends System {
 
     public NervousSystem(){
-        img = new Texture("FredSkeleton.png");
+        img = new Texture("FredNervous.png");
         name = "nervous";
     }
 

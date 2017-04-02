@@ -1,7 +1,5 @@
 package fred.plusplus;
 
-import com.badlogic.gdx.InputAdapter;
-
 import java.util.ArrayList;
 
 /**
@@ -13,6 +11,8 @@ public class ShowSubsystemListener extends Listener {
     public ShowSubsystemListener(FredAttributeDataStore fred) {
         this.fred = fred;
         buttons = new ArrayList<Button>();
+        x = 230;
+        y = 20;
     }
 
     @Override
@@ -22,10 +22,10 @@ public class ShowSubsystemListener extends Listener {
         for (Button b : buttons){
             if (b.intersects(x, y)){
 
-                b.tap();
-
-                fred.showSystem(b.getSubSystem());
-
+                if (b.isActive()) {
+                    b.tap();
+                    fred.showHideSystem(b.getSubSystem());
+                }
                 return true;
             }
         }

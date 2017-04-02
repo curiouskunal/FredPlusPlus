@@ -35,9 +35,11 @@ public abstract class System {
         isActivated = !isActivated;
     }
 
-    public void showHide(){
-        isVisible = !isVisible;
-    }
+    public void showHide(){ isVisible = !isVisible; }
+
+    public void show(){ isVisible = true; }
+
+    public void hide() { isVisible = false; }
 
     public void dispose(){
         img.dispose();

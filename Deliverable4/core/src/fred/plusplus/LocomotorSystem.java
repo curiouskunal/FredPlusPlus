@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class LocomotorSystem extends System {
 
     public LocomotorSystem(){
-        img = new Texture("FredSkeleton.png");
+        img = new Texture("FredLocomotor.png");
         name = "locomotor";
     }
 

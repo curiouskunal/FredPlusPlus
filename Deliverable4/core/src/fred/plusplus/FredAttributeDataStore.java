@@ -67,7 +67,7 @@ public class FredAttributeDataStore {
         }
     }
 
-    public void showSystem(String sysName){
+    public void showHideSystem(String sysName){
         for (System sys : subSystems){
             if (sysName.equals(sys.getName())){
                 sys.showHide();
@@ -75,6 +75,21 @@ public class FredAttributeDataStore {
         }
     }
 
+    public void showSystem(String sysName){
+        for (System sys : subSystems){
+            if (sysName.equals(sys.getName())){
+                sys.show();
+            }
+        }
+    }
+
+    public void hideSystem(String sysName){
+        for (System sys : subSystems){
+            if (sysName.equals(sys.getName())){
+                sys.hide();
+            }
+        }
+    }
 
     public Texture getBaseTexture(){
         return fredBase;

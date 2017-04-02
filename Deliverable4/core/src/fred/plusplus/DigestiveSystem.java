@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class DigestiveSystem extends System {
 
     public DigestiveSystem(){
-        img = new Texture("FredSkeleton.png");
+        img = new Texture("FredDigestive.png");
         name = "digestive";
     }
 

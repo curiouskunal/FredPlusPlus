@@ -38,12 +38,12 @@ public class Button {
     public boolean isOn(){
         return isOn;
     }
-
-    public void activate(){
-        isActive = true;
+    public boolean isActive(){
+        return isActive;
     }
-    public void deactivate(){
-        isActive = false;
+
+    public void toggleActivate(){
+        isActive = !isActive;
     }
 
     public String getSubSystem(){
@@ -51,14 +51,13 @@ public class Button {
     }
 
     public Texture getTexture(){
-        if (isOn){
+        if (isOn && isActive){
             return onImage;
         }
         else{
             return offImage;
         }
     }
-
 
     public boolean intersects(int tapX, int tapY){
         return (tapX >= x) && (tapX <= x + width) && (tapY >= y) && (tapY <= y + height);

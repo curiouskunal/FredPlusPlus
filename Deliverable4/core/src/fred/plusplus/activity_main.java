@@ -4,9 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import java.util.ArrayList;
 
@@ -26,7 +23,7 @@ public class activity_main {
     public activity_main(FredAttributeDataStore fred){
         batch = new SpriteBatch();
         showListener = new ShowSubsystemListener(fred);
-        toggleListener = new ToggleSubsystemListener(fred);
+        toggleListener = new ToggleSubsystemListener(fred, showListener);
         stimuliListener = new StimuliListener(fred);
 
         //This is how libGDX handles multiple different input listeners
@@ -40,12 +37,16 @@ public class activity_main {
         Gdx.input.setInputProcessor(multiplexer);
 
 
-        showListener.addButton(100, 200, "cardiovascular", "showCardioOn.png", "showCardioOff.png");
-        showListener.addButton(100, 300, "nervous", "showCardioOn.png", "showCardioOff.png");
-        showListener.addButton(100, 400, "locomotor", "showCardioOn.png", "showCardioOff.png");
-        showListener.addButton(100, 500, "digestive", "showCardioOn.png", "showCardioOff.png");
+        showListener.addButton("cardiovascular", "shownCardiovascular.png", "hiddenCardiovascular.png");
+        showListener.addButton("nervous", "shownNervous.png", "hiddenNervous.png");
+        showListener.addButton("locomotor", "shownLocomotor.png", "hiddenLocomotor.png");
+        showListener.addButton("digestive", "shownDigestive.png", "hiddenDigestive.png");
 
-        //toggleListener.add
+        toggleListener.addButton("cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png");
+        toggleListener.addButton("nervous", "activeNervous.png", "inactiveNervous.png");
+        toggleListener.addButton("locomotor", "activeLocomotor.png", "inactiveLocomotor.png");
+        toggleListener.addButton("digestive", "activeDigestive.png", "inactiveDigestive.png");
+
 
     }
 
@@ -66,6 +67,9 @@ public class activity_main {
     public void drawButtons(){
         batch.begin();
         for (Button b : showListener.getButtons()){
+            batch.draw(b.getTexture(), b.getX(), b.getY());
+        }
+        for (Button b : toggleListener.getButtons()){
             batch.draw(b.getTexture(), b.getX(), b.getY());
         }
         batch.end();

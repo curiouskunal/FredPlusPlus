@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class CardiovascularSystem extends System {
 
     public CardiovascularSystem(){
-        img = new Texture("FredSkeleton.png");
+        img = new Texture("FredCardiovascular.png");
         name = "cardiovascular";
     }
 

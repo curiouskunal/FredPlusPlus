@@ -1,7 +1,5 @@
 package fred.plusplus;
 
-import com.badlogic.gdx.InputAdapter;
-
 import java.util.ArrayList;
 
 /**
@@ -10,9 +8,14 @@ import java.util.ArrayList;
 
 public class ToggleSubsystemListener extends Listener {
 
-    public ToggleSubsystemListener(FredAttributeDataStore fred){
+    private ShowSubsystemListener show;
+
+    public ToggleSubsystemListener(FredAttributeDataStore fred, ShowSubsystemListener show){
         this.fred = fred;
         buttons = new ArrayList<Button>();
+        x = 20;
+        y = 20;
+        this.show = show;
     }
 
     @Override
@@ -25,12 +28,23 @@ public class ToggleSubsystemListener extends Listener {
                 b.tap();
 
                 fred.toggleSystem(b.getSubSystem());
+                for (Button b2 : show.getButtons()){
+                    if (b2.getSubSystem().equals(b.getSubSystem())){
+                        if (b2.isOn()){
+                            b2.tap();
+                        }
+                        else{
 
-                return true;
+                        }
+                        b2.toggleActivate();
+                    }
+                }
+
+                return true; // return true to indicate the event was handled
             }
         }
 
-        return false; // return true to indicate the event was handled
+        return false;
     }
 
 }

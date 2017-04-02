@@ -1,7 +1,5 @@
 package fred.plusplus;
 
-import com.badlogic.gdx.InputAdapter;
-
 import java.util.ArrayList;
 
 /**
@@ -23,10 +21,10 @@ public class StimuliListener extends Listener{
             if (b.intersects(x, y)){
                 b.tap();
 
-                return true;
+                return true; // return true to indicate the event was handled
             }
         }
 
-        return false; // return true to indicate the event was handled
+        return false;
     }
 }
