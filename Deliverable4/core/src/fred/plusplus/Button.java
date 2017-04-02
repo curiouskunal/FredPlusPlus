@@ -17,15 +17,19 @@ public class Button {
     private Texture offImage;
     private boolean isOn;
     private boolean isActive;
+    private String subSystem;
 
-    public Button(int x, int y, String onFileName, String offFileName){
+
+    public Button(int x, int y, String subSystem, String onFileName, String offFileName){
         this.x = x;
         this.y = y;
+        this.subSystem = subSystem;
         onImage = new Texture(onFileName);
         offImage = new Texture(offFileName);
         width = onImage.getWidth();
         height = onImage.getHeight();
         isOn = true;
+        isActive = true;
     }
 
     public int getX(){return x;}
@@ -33,6 +37,17 @@ public class Button {
 
     public boolean isOn(){
         return isOn;
+    }
+
+    public void activate(){
+        isActive = true;
+    }
+    public void deactivate(){
+        isActive = false;
+    }
+
+    public String getSubSystem(){
+        return subSystem;
     }
 
     public Texture getTexture(){
@@ -44,12 +59,15 @@ public class Button {
         }
     }
 
+
     public boolean intersects(int tapX, int tapY){
         return (tapX >= x) && (tapX <= x + width) && (tapY >= y) && (tapY <= y + height);
     }
 
     public void tap(){
-        isOn = !isOn;
+        if (isActive){
+            isOn = !isOn;
+        }
     }
 
 }

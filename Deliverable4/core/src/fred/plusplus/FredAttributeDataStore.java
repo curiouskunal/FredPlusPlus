@@ -38,7 +38,7 @@ public class FredAttributeDataStore {
 
         for (System sys : subSystems){
             if (sys.getIsActivated()){
-                sys.activate();
+                active.add(sys);
             }
         }
         return active;
@@ -59,37 +59,22 @@ public class FredAttributeDataStore {
         return availableStimuli;
     }
 
-    public void turnOnSystem(String sysName){
+    public void toggleSystem(String sysName){
         for (System sys : subSystems){
-            if (sysName == sys.getName()){
-                sys.activate();
-            }
-        }
-    }
-
-    public void turnOffSystem(String sysName){
-        for (System sys : subSystems){
-            if (sysName == sys.getName()){
-                sys.deactivate();
+            if (sysName.equals(sys.getName())){
+                sys.toggle();
             }
         }
     }
 
     public void showSystem(String sysName){
         for (System sys : subSystems){
-            if (sysName == sys.getName()){
-                sys.show();
+            if (sysName.equals(sys.getName())){
+                sys.showHide();
             }
         }
     }
 
-    public void hideSystem(String sysName){
-        for (System sys : subSystems){
-            if (sysName == sys.getName()){
-                sys.hide();
-            }
-        }
-    }
 
     public Texture getBaseTexture(){
         return fredBase;

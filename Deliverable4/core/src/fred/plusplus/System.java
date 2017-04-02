@@ -11,7 +11,6 @@ public abstract class System {
 
     protected Texture img;
     protected String name;
-    //protected Rect
     protected boolean isActivated = true;
     protected boolean isVisible = true;
     protected ArrayList<Metric> listOfMetrics;
@@ -32,20 +31,12 @@ public abstract class System {
         return isVisible;
     }
 
-    public void activate(){
-        isActivated = true;
+    public void toggle(){
+        isActivated = !isActivated;
     }
 
-    public void deactivate(){
-        isActivated = false;
-    }
-
-    public void show(){
-        isVisible = true;
-    }
-
-    public void hide(){
-        isVisible = false;
+    public void showHide(){
+        isVisible = !isVisible;
     }
 
     public void dispose(){

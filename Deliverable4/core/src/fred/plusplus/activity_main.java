@@ -16,8 +16,6 @@ import java.util.ArrayList;
 
 public class activity_main {
 
-
-
     private ShowSubsystemListener showListener;
     private ToggleSubsystemListener toggleListener;
     private StimuliListener stimuliListener;
@@ -28,8 +26,8 @@ public class activity_main {
     public activity_main(FredAttributeDataStore fred){
         batch = new SpriteBatch();
         showListener = new ShowSubsystemListener(fred);
-        toggleListener = new ToggleSubsystemListener();
-        stimuliListener = new StimuliListener();
+        toggleListener = new ToggleSubsystemListener(fred);
+        stimuliListener = new StimuliListener(fred);
 
         //This is how libGDX handles multiple different input listeners
         //Whenever a touch event happens, it will pass it to the first listener
@@ -42,10 +40,12 @@ public class activity_main {
         Gdx.input.setInputProcessor(multiplexer);
 
 
-        showListener.addButton(100, 200, "showCardioOn.png", "showCardioOff.png");
-        showListener.addButton(100, 300, "showCardioOn.png", "showCardioOff.png");
-        showListener.addButton(100, 400, "showCardioOn.png", "showCardioOff.png");
-        showListener.addButton(100, 500, "showCardioOn.png", "showCardioOff.png");
+        showListener.addButton(100, 200, "cardiovascular", "showCardioOn.png", "showCardioOff.png");
+        showListener.addButton(100, 300, "nervous", "showCardioOn.png", "showCardioOff.png");
+        showListener.addButton(100, 400, "locomotor", "showCardioOn.png", "showCardioOff.png");
+        showListener.addButton(100, 500, "digestive", "showCardioOn.png", "showCardioOff.png");
+
+        //toggleListener.add
 
     }
 
