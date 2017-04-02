@@ -11,6 +11,7 @@ public abstract class System {
 
     protected Texture img;
     protected String name;
+    //protected Rect
     protected boolean isActivated = true;
     protected boolean isVisible = true;
     protected ArrayList<Metric> listOfMetrics;
