@@ -12,6 +12,12 @@ public class Metric {
         this.name = name;
         this.value = value;
     }
+    public int getValue(){
+        return this.value;
+    }
+    public Metric getMetric(){
+        return
+    }
 
 
 

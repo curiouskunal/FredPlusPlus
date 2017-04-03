@@ -16,5 +16,11 @@ public class RandomEvent {
         this.name = name;
         this.probability = probability;
     }
+    public int getProbability(){
+        return this.probability;
+    }
+    public ArrayList<MetricChange> getEffects(){
+        return this.effects;
+    }
 
 }
