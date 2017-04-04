@@ -11,8 +11,10 @@ import java.util.ArrayList;
 public class CardiovascularSystem extends System {
 
     public CardiovascularSystem(){
-        img = new Texture("FredSkeleton.png");
+        img = new Texture("FredLocomotor.png");
         name = "cardiovascular";
+
+        listOfMetrics = new ArrayList<Metric>();
 
         listOfMetrics.add(new Metric("blood_pressure", 50));
         listOfMetrics.add(new Metric("resting_heart_rate", 50));

@@ -11,8 +11,10 @@ import java.util.ArrayList;
 public class NervousSystem extends System {
 
     public NervousSystem(){
-        img = new Texture("FredSkeleton.png");
+        img = new Texture("FredNervous.png");
         name = "nervous";
+
+        listOfMetrics = new ArrayList<Metric>();
 
         listOfMetrics.add(new Metric("pain_head", 0));
         listOfMetrics.add(new Metric("dizziness", 0));
