@@ -30,9 +30,9 @@ public class FredAttributeDataStore {
         locomotor = new LocomotorSystem();
         digestive = new DigestiveSystem();
 
+        subSystems.add(locomotor);
         subSystems.add(cardiovascular);
         subSystems.add(nervous);
-        subSystems.add(locomotor);
         subSystems.add(digestive);
 
         netResultCalc = new NetResultCalc(this);
@@ -124,7 +124,7 @@ public class FredAttributeDataStore {
 
         for (System s : getActivatedSystems()) {
             for (Metric m : s.listOfMetrics) {
-                if (! hasMetric(m.name)) {
+                if (! hasMetric(m.getName())) {
                     metrics.add(m);
                 }
             }
@@ -133,7 +133,7 @@ public class FredAttributeDataStore {
 
     public boolean hasMetric(String metricName) {
         for (Metric m : metrics) {
-            if (metricName.equals(m.name)) {
+            if (metricName.equals(m.getName())) {
                 return true;
             }
         }

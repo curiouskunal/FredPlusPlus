@@ -5,8 +5,8 @@ package fred.plusplus;
  */
 
 public class Metric {
-    public String name;
 
+    private String name;
     private int value;
 
     public Metric(String name, int value){
@@ -23,6 +23,10 @@ public class Metric {
         if (n > 100) n = 100;
 
         value = 100;
+    }
+
+    public String getName(){
+        return name;
     }
 
 }

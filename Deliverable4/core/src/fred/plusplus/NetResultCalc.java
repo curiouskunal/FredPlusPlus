@@ -25,7 +25,7 @@ public class NetResultCalc {
     private void reactToStimuli(Stimulus stim, System sys, ArrayList<MetricChange> changes, ArrayList<Metric> metrics) {
         for (MetricChange mc : changes) {
             for (Metric m : metrics) {
-                if (m.name.equals(mc.metric)) {
+                if (m.getName().equals(mc.metric)) {
                     m.increment(mc.delta);
                 }
             }
