@@ -2,10 +2,11 @@ package fred.plusplus;
 
 import java.util.ArrayList;
 import java.io.BufferedReader;
-import java.io.File;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
+import java.lang.System;
 /**
  * Created by Gabriel on 02/04/2017.
  */
@@ -22,8 +23,11 @@ public class RandomEventGenerator {
         ProbabilityAssign();
     }
     private void ParseEvents(){
+
+        FredAttributeDataStore fred = new FredAttributeDataStore();
+        String path = System.getProperty("user.dir");
         try {
-            FileReader input = new FileReader("../data/RandomEvents.txt");
+            FileReader input = new FileReader(path + "\\src\\data\\RandomEvents.txt");
             BufferedReader bufRead = new BufferedReader(input);
             String myLine = null;
             ArrayList<RandomEvent> Randomevents = new ArrayList<RandomEvent>();
@@ -31,11 +35,12 @@ public class RandomEventGenerator {
                 String[] array1 = myLine.split(":");
                 String[] array2 = array1[1].split(",");
                 // check to make sure you have valid data
-                String EventName = array2[0];
+                String EventName = array1[0];
                 ArrayList<MetricChange> changes = new ArrayList<MetricChange>();
                 int probabilityNum = Integer.parseInt(array2[array2.length - 1]);
                 for (int i = 0; i < array2.length - 1; i = i + 2) {
-                    changes.add(new MetricChange(new Metric(array2[i],10/*temp*/),Integer.parseInt(array2[i+1])));
+                    //needs to match the metrics that fred has
+                    changes.add(new MetricChange(fred.getMetrics().get(i/*Temp*/),Integer.parseInt(array2[i+1])));
                 }
                 Randomevents.add(new RandomEvent(changes, EventName, probabilityNum));
             }

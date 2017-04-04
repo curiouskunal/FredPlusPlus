@@ -15,10 +15,4 @@ public class Metric {
     public int getValue(){
         return this.value;
     }
-    public Metric getMetric(){
-        return
-    }
-
-
-
 }
