@@ -5,10 +5,10 @@ package fred.plusplus;
  */
 
 public class MetricChange {
-    Metric metric;
+    String metric;
     int delta;
 
-    public MetricChange(Metric metric, int delta){
+    public MetricChange(String metric, int delta){
         this.metric = metric;
         this.delta = delta;
     }

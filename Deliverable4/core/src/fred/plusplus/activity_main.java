@@ -46,8 +46,6 @@ public class activity_main {
         toggleListener.addButton("nervous", "activeNervous.png", "inactiveNervous.png");
         toggleListener.addButton("locomotor", "activeLocomotor.png", "inactiveLocomotor.png");
         toggleListener.addButton("digestive", "activeDigestive.png", "inactiveDigestive.png");
-
-
     }
 
     public void draw(Texture texture, int x, int y){

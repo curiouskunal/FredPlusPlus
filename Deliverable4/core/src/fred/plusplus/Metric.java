@@ -5,14 +5,24 @@ package fred.plusplus;
  */
 
 public class Metric {
-    String name;
-    int value;
+    public String name;
+
+    private int value;
 
     public Metric(String name, int value){
         this.name = name;
         this.value = value;
     }
 
+    public int value() { return value; }
 
+    public void increment (int delta) {
+        int n = value + delta;
+
+        if (n < 0) n = 0;
+        if (n > 100) n = 100;
+
+        value = 100;
+    }
 
 }

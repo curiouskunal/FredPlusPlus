@@ -7,7 +7,6 @@ import java.util.ArrayList;
 /**
  * Created by Josh on 30/03/2017.
  */
-
 public class FredAttributeDataStore {
 
     private Texture fredBase;
@@ -16,17 +15,29 @@ public class FredAttributeDataStore {
     private ArrayList<System> subSystems = new ArrayList<System>();
     private ArrayList<Stimulus> availableStimuli = new ArrayList<Stimulus>();
 
-    private CardiovascularSystem cardiovascular = new CardiovascularSystem();
-    private NervousSystem nervous = new NervousSystem();
-    private LocomotorSystem locomotor = new LocomotorSystem();
-    private DigestiveSystem digestive = new DigestiveSystem();
+    private CardiovascularSystem cardiovascular;
+    private NervousSystem nervous;
+    private LocomotorSystem locomotor;
+    private DigestiveSystem digestive;
+
+    NetResultCalc netResultCalc;
 
     public FredAttributeDataStore(){
         fredBase = new Texture("FredBaseTemplate.png");
+
+        cardiovascular = new CardiovascularSystem();
+        nervous = new NervousSystem();
+        locomotor = new LocomotorSystem();
+        digestive = new DigestiveSystem();
+
         subSystems.add(cardiovascular);
         subSystems.add(nervous);
         subSystems.add(locomotor);
         subSystems.add(digestive);
+
+        netResultCalc = new NetResultCalc(this);
+
+        updateMetrics();
     }
 
     public ArrayList<Metric> getMetrics(){
@@ -65,6 +76,8 @@ public class FredAttributeDataStore {
                 sys.toggle();
             }
         }
+
+        updateMetrics();
     }
 
     public void showHideSystem(String sysName){
@@ -91,6 +104,10 @@ public class FredAttributeDataStore {
         }
     }
 
+    public void reactToStimuli (Stimulus s) {
+        netResultCalc.reactToStimuli(s);
+    }
+
     public Texture getBaseTexture(){
         return fredBase;
     }
@@ -100,6 +117,27 @@ public class FredAttributeDataStore {
         for (System sys: subSystems) {
             sys.dispose();
         }
+    }
+
+    private void updateMetrics() {
+        metrics = new ArrayList<Metric>();
+
+        for (System s : getActivatedSystems()) {
+            for (Metric m : s.listOfMetrics) {
+                if (! hasMetric(m.name)) {
+                    metrics.add(m);
+                }
+            }
+        }
+    }
+
+    public boolean hasMetric(String metricName) {
+        for (Metric m : metrics) {
+            if (metricName.equals(m.name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
