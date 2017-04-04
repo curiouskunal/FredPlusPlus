@@ -88,22 +88,6 @@ public class FredAttributeDataStore {
         }
     }
 
-    public void showSystem(String sysName){
-        for (System sys : subSystems){
-            if (sysName.equals(sys.getName())){
-                sys.show();
-            }
-        }
-    }
-
-    public void hideSystem(String sysName){
-        for (System sys : subSystems){
-            if (sysName.equals(sys.getName())){
-                sys.hide();
-            }
-        }
-    }
-
     public void reactToStimuli (Stimulus s) {
         netResultCalc.reactToStimuli(s);
     }

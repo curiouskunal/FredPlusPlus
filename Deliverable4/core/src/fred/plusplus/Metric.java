@@ -14,7 +14,7 @@ public class Metric {
         this.value = value;
     }
 
-    public int value() { return value; }
+    public int getValue() { return value; }
 
     public void increment (int delta) {
         int n = value + delta;
@@ -22,7 +22,7 @@ public class Metric {
         if (n < 0) n = 0;
         if (n > 100) n = 100;
 
-        value = 100;
+        value = n;
     }
 
     public String getName(){

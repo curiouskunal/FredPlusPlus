@@ -18,11 +18,22 @@ public class activity_main {
     private StimuliListener stimuliListener;
     private InputMultiplexer multiplexer;
     private int space = 175;
+    private int metricPos = 200;
 
     private SpriteBatch batch;
 
+    private Texture red;
+    private Texture yellow;
+    private Texture green;
+
+    private Texture bg;
+
     public activity_main(FredAttributeDataStore fred) {
         batch = new SpriteBatch();
+        red = new Texture("Red.png");
+        yellow = new Texture("Yellow.png");
+        green = new Texture("Green.png");
+        bg = new Texture("BG.png");
 
         showListener = new ShowSubsystemListener(fred);
         stimuliListener = new StimuliListener(fred);
@@ -62,6 +73,12 @@ public class activity_main {
     }
 
 
+    public void drawBG(){
+        batch.begin();
+        batch.draw(bg, 0, 0);
+        batch.end();
+    }
+
     public void draw(Texture texture, int x, int y){
         batch.begin();
         batch.draw(texture, x, y);
@@ -88,6 +105,21 @@ public class activity_main {
             batch.draw(b.getTexture(), b.getX(), b.getY());
         }
         batch.end();
+    }
+
+    public void drawMetric(Metric m){
+        batch.begin();
+        if (m.getValue() > 70){
+            batch.draw(green, 200, metricPos, 200, 200);
+        }
+        else if (m.getValue() > 30){
+            batch.draw(yellow, 200, metricPos, 200, 200);
+        }
+        else{
+            batch.draw(red, 200, metricPos, 200, 200);
+        }
+        batch.end();
+        //metricPos -= 50;
     }
 
     public void dispose () {

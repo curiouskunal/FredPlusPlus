@@ -29,6 +29,10 @@ public class ToggleSubsystemListener extends Listener {
 
                 b.tap();
 
+                for (System sys : fred.getActivatedSystems()){
+
+                }
+
                 fred.toggleSystem(b.getSubSystem());
                 for (Button b2 : show.getButtons()){
                     if (b2.getSubSystem().equals(b.getSubSystem())){

@@ -20,12 +20,16 @@ public class MainActivity extends ApplicationAdapter {
 	//render() gets called every frame
 	public void render () {
 		//Clear screen
-		Gdx.gl.glClearColor(1, 1, 0, 1);
+		Gdx.gl.glClearColor(1, 0, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+		view.drawBG();
 		view.draw(fred.getBaseTexture(), 0, 0);
 		view.drawSubSystems(fred.getVisibleSystems());
 		view.drawButtons();
+		for (Metric m : fred.getMetrics()){
+			view.drawMetric(m);
+		}
 	}
 	
 	@Override
