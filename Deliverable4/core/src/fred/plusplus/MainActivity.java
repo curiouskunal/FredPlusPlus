@@ -9,13 +9,11 @@ public class MainActivity extends ApplicationAdapter {
 	activity_main view;
 	FredAttributeDataStore fred;
 
-
 	@Override
 	//create() gets called once, at the start of the game launch
 	public void create () {
         fred = new FredAttributeDataStore();
-        view = new activity_main(fred);
-
+		view = new activity_main(fred);
 
 	}
 

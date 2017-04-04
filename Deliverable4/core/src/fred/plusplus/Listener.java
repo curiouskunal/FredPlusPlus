@@ -17,13 +17,13 @@ public abstract class Listener extends InputAdapter {
     protected int x;
     protected int y;
 
-    public ArrayList<Button> getButtons(){
-        return buttons;
-    }
-
     public void addButton(String subSystem, String onFilename, String offFilename){
         buttons.add(new Button(x, y, subSystem, onFilename, offFilename));
         y += 200;
+    }
+
+    public ArrayList<Button> getButtons(){
+        return buttons;
     }
 
 }

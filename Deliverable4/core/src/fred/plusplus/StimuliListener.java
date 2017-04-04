@@ -11,6 +11,14 @@ public class StimuliListener extends Listener{
     public StimuliListener(FredAttributeDataStore fred) {
         this.fred = fred;
         buttons = new ArrayList<Button>();
+        x = 0;
+        y = 2150;
+    }
+
+    public void addButton(int x, String subSystem, String onFilename, String offFilename, Stimulus stimulus){
+        Button button = new Button(this.x + x, y, subSystem, onFilename, offFilename, stimulus);
+        buttons.add(button);
+
     }
 
     @Override
@@ -19,7 +27,12 @@ public class StimuliListener extends Listener{
 
         for (Button b : buttons){
             if (b.intersects(x, y)){
-                b.tap();
+
+                for (System sys : fred.getActivatedSystems()){
+                    if (b.getSubSystem().equals(sys.getName())){
+                        sys.reactToStimuli(b.getStimulus());
+                    }
+                }
 
                 return true; // return true to indicate the event was handled
             }

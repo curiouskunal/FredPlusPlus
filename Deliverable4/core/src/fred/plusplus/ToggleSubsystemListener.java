@@ -9,13 +9,15 @@ import java.util.ArrayList;
 public class ToggleSubsystemListener extends Listener {
 
     private ShowSubsystemListener show;
+    private StimuliListener stim;
 
-    public ToggleSubsystemListener(FredAttributeDataStore fred, ShowSubsystemListener show){
+    public ToggleSubsystemListener(FredAttributeDataStore fred, ShowSubsystemListener show, StimuliListener stim){
         this.fred = fred;
         buttons = new ArrayList<Button>();
         x = 20;
         y = 20;
         this.show = show;
+        this.stim = stim;
     }
 
     @Override
@@ -32,8 +34,14 @@ public class ToggleSubsystemListener extends Listener {
                     if (b2.getSubSystem().equals(b.getSubSystem())){
                         if (b2.isOn()) {
                             b2.tap();
+                            fred.showHideSystem(b2.getSubSystem());
                         }
                         b2.toggleActivate();
+                    }
+                }
+                for (Button b3 : stim.getButtons()){
+                    if (b3.getSubSystem().equals(b.getSubSystem())){
+                        b3.toggleActivate();
                     }
                 }
 
