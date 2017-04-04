@@ -19,6 +19,8 @@ public class Button {
     private boolean isActive;
     private String subSystem;
 
+    private Stimulus stimulus;
+
 
     public Button(int x, int y, String subSystem, String onFileName, String offFileName){
         this.x = x;
@@ -30,6 +32,19 @@ public class Button {
         height = onImage.getHeight();
         isOn = true;
         isActive = true;
+    }
+
+    public Button(int x, int y, String subSystem, String onFileName, String offFileName, Stimulus stimulus){
+        this.x = x;
+        this.y = y;
+        this.subSystem = subSystem;
+        onImage = new Texture(onFileName);
+        offImage = new Texture(offFileName);
+        width = onImage.getWidth();
+        height = onImage.getHeight();
+        isOn = true;
+        isActive = true;
+        this.stimulus = stimulus;
     }
 
     public int getX(){return x;}
@@ -57,6 +72,10 @@ public class Button {
         else{
             return offImage;
         }
+    }
+
+    public Stimulus getStimulus(){
+        return stimulus;
     }
 
     public boolean intersects(int tapX, int tapY){

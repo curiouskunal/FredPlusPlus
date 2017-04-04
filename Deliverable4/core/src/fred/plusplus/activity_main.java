@@ -17,25 +17,16 @@ public class activity_main {
     private ToggleSubsystemListener toggleListener;
     private StimuliListener stimuliListener;
     private InputMultiplexer multiplexer;
+    private int space = 175;
 
     private SpriteBatch batch;
 
-    public activity_main(FredAttributeDataStore fred){
+    public activity_main(FredAttributeDataStore fred) {
         batch = new SpriteBatch();
+
         showListener = new ShowSubsystemListener(fred);
-        toggleListener = new ToggleSubsystemListener(fred, showListener);
         stimuliListener = new StimuliListener(fred);
-
-        //This is how libGDX handles multiple different input listeners
-        //Whenever a touch event happens, it will pass it to the first listener
-        //If a listener doesn't handle it, it returns false and the event passes to the next listener
-        //If a listener does handle the input, it returns true and the multiplexer stops
-        multiplexer = new InputMultiplexer();
-        multiplexer.addProcessor(showListener);
-        multiplexer.addProcessor(toggleListener);
-        multiplexer.addProcessor(stimuliListener);
-        Gdx.input.setInputProcessor(multiplexer);
-
+        toggleListener = new ToggleSubsystemListener(fred, showListener, stimuliListener);
 
         showListener.addButton("cardiovascular", "shownCardiovascular.png", "hiddenCardiovascular.png");
         showListener.addButton("nervous", "shownNervous.png", "hiddenNervous.png");
@@ -46,7 +37,30 @@ public class activity_main {
         toggleListener.addButton("nervous", "activeNervous.png", "inactiveNervous.png");
         toggleListener.addButton("locomotor", "activeLocomotor.png", "inactiveLocomotor.png");
         toggleListener.addButton("digestive", "activeDigestive.png", "inactiveDigestive.png");
+
+        stimuliListener.addButton(0, "cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png", new Stimulus("exercise"));
+        stimuliListener.addButton(space, "cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png", new Stimulus("medicine"));
+
+        stimuliListener.addButton(space*2, "digestive", "activeDigestive.png", "inactiveDigestive.png", new Stimulus("food"));
+        stimuliListener.addButton(space*3, "digestive", "activeDigestive.png", "inactiveDigestive.png", new Stimulus("drink"));
+
+        stimuliListener.addButton(space*4, "locomotor", "activeLocomotor.png", "inactiveLocomotor.png", new Stimulus("exercise"));
+        stimuliListener.addButton(space*5, "locomotor", "activeLocomotor.png", "inactiveLocomotor.png", new Stimulus("bandage"));
+
+        stimuliListener.addButton(space*6, "nervous", "activeNervous.png", "inactiveNervous.png", new Stimulus("homework"));
+        stimuliListener.addButton(space*7, "nervous", "activeNervous.png", "inactiveNervous.png", new Stimulus("partying"));
+
+        //This is how libGDX handles multiple different input listeners
+        //Whenever a touch event happens, it will pass it to the first listener
+        //If a listener doesn't handle it, it returns false and the event passes to the next listener
+        //If a listener does handle the input, it returns true and the multiplexer stops
+        multiplexer = new InputMultiplexer();
+        multiplexer.addProcessor(showListener);
+        multiplexer.addProcessor(toggleListener);
+        multiplexer.addProcessor(stimuliListener);
+        Gdx.input.setInputProcessor(multiplexer);
     }
+
 
     public void draw(Texture texture, int x, int y){
         batch.begin();
@@ -68,6 +82,9 @@ public class activity_main {
             batch.draw(b.getTexture(), b.getX(), b.getY());
         }
         for (Button b : toggleListener.getButtons()){
+            batch.draw(b.getTexture(), b.getX(), b.getY());
+        }
+        for (Button b : stimuliListener.getButtons()){
             batch.draw(b.getTexture(), b.getX(), b.getY());
         }
         batch.end();
