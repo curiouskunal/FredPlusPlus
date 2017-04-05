@@ -3,7 +3,6 @@ package fred.plusplus;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-
 public class MainActivity extends ApplicationAdapter {
 
 	activity_main view;
@@ -30,6 +29,8 @@ public class MainActivity extends ApplicationAdapter {
 		for (Metric m : fred.getMetrics()){
 			view.drawMetric(m);
 		}
+
+		fred.deteriorate();
 	}
 	
 	@Override

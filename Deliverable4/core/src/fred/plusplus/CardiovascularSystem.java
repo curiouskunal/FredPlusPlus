@@ -17,14 +17,18 @@ public class CardiovascularSystem extends System {
         listOfMetrics = new ArrayList<Metric>();
 
         listOfMetrics.add(new Metric("blood_pressure", 50));
-        listOfMetrics.add(new Metric("resting_heart_rate", 50));
+        listOfMetrics.add(new Metric("resting_heart_rate", 100));
         listOfMetrics.add(new Metric("overall_health", 50));
     }
 
     public ArrayList<MetricChange> reactToStimuli(Stimulus s){
         ArrayList<MetricChange> changes = new ArrayList<MetricChange>();
 
-        if (s.name.equals("food_unhealthy")) {
+        if (s.name.equals("deteriorate")){
+            changes.add(new MetricChange("blood_pressure", -1));
+            changes.add(new MetricChange("resting heart rate", -1));
+        }
+        else if (s.name.equals("food_unhealthy")) {
             changes.add(new MetricChange("blood_pressure", 10));
             changes.add(new MetricChange("resting_heart_rate", 1));
             changes.add(new MetricChange("overall_health", -1));

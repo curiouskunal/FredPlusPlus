@@ -66,10 +66,6 @@ public class FredAttributeDataStore {
         return visible;
     }
 
-    public ArrayList<Stimulus> getAvailableStimuli(){
-        return availableStimuli;
-    }
-
     public void toggleSystem(String sysName){
         for (System sys : subSystems){
             if (sysName.equals(sys.getName())){
@@ -86,10 +82,6 @@ public class FredAttributeDataStore {
                 sys.showHide();
             }
         }
-    }
-
-    public void reactToStimuli (Stimulus s) {
-        netResultCalc.reactToStimuli(s);
     }
 
     public Texture getBaseTexture(){
@@ -122,6 +114,13 @@ public class FredAttributeDataStore {
             }
         }
         return false;
+    }
+
+
+    public void deteriorate(){
+        for (System sys : getActivatedSystems()){
+            sys.reactToStimuli(new Stimulus("deteriorate"));
+        }
     }
 
 }

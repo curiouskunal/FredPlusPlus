@@ -18,7 +18,7 @@ public class activity_main {
     private StimuliListener stimuliListener;
     private InputMultiplexer multiplexer;
     private int space = 175;
-    private int metricPos = 200;
+    private int metricPos;
 
     private SpriteBatch batch;
 
@@ -34,6 +34,8 @@ public class activity_main {
         yellow = new Texture("Yellow.png");
         green = new Texture("Green.png");
         bg = new Texture("BG.png");
+
+        resetMetricPos();
 
         showListener = new ShowSubsystemListener(fred);
         stimuliListener = new StimuliListener(fred);
@@ -52,7 +54,7 @@ public class activity_main {
         stimuliListener.addButton(0, "cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png", new Stimulus("exercise"));
         stimuliListener.addButton(space, "cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png", new Stimulus("medicine"));
 
-        stimuliListener.addButton(space*2, "digestive", "activeDigestive.png", "inactiveDigestive.png", new Stimulus("food"));
+        stimuliListener.addButton(space*2, "digestive", "activeDigestive.png", "inactiveDigestive.png", new Stimulus("food_unhealthy"));
         stimuliListener.addButton(space*3, "digestive", "activeDigestive.png", "inactiveDigestive.png", new Stimulus("drink"));
 
         stimuliListener.addButton(space*4, "locomotor", "activeLocomotor.png", "inactiveLocomotor.png", new Stimulus("exercise"));
@@ -72,11 +74,11 @@ public class activity_main {
         Gdx.input.setInputProcessor(multiplexer);
     }
 
-
     public void drawBG(){
         batch.begin();
         batch.draw(bg, 0, 0);
         batch.end();
+        resetMetricPos();
     }
 
     public void draw(Texture texture, int x, int y){
@@ -96,30 +98,43 @@ public class activity_main {
     public void drawButtons(){
         batch.begin();
         for (Button b : showListener.getButtons()){
-            batch.draw(b.getTexture(), b.getX(), b.getY());
+            if (b.isActive()) {
+                batch.draw(b.getTexture(), b.getX(), b.getY());
+            }
         }
         for (Button b : toggleListener.getButtons()){
             batch.draw(b.getTexture(), b.getX(), b.getY());
         }
-        for (Button b : stimuliListener.getButtons()){
-            batch.draw(b.getTexture(), b.getX(), b.getY());
+        for (Button b : stimuliListener.getButtons()) {
+            if (b.isActive()){
+                batch.draw(b.getTexture(), b.getX(), b.getY());
+            }
         }
         batch.end();
     }
 
+    private void resetMetricPos(){
+        metricPos = 2300;
+    }
+
     public void drawMetric(Metric m){
+        int posX = 1150;
+        int width = (int)2.5*m.getValue() + 10;
+
         batch.begin();
         if (m.getValue() > 70){
-            batch.draw(green, 200, metricPos, 200, 200);
+            batch.draw(green, posX, metricPos, width, green.getHeight());
         }
         else if (m.getValue() > 30){
-            batch.draw(yellow, 200, metricPos, 200, 200);
+            batch.draw(yellow, posX, metricPos, width, yellow.getHeight());
         }
         else{
-            batch.draw(red, 200, metricPos, 200, 200);
+            batch.draw(red, posX, metricPos, width, red.getHeight());
         }
         batch.end();
-        //metricPos -= 50;
+        metricPos -= 55;
+        Gdx.app.log("MyTag", "my informative message");
+
     }
 
     public void dispose () {
