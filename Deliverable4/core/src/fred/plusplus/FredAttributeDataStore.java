@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class FredAttributeDataStore {
 
     private Texture fredBase;
+    private Texture fredExterior;
 
     private ArrayList<Metric> metrics = new ArrayList<Metric>();
     private ArrayList<System> subSystems = new ArrayList<System>();
@@ -24,6 +25,7 @@ public class FredAttributeDataStore {
 
     public FredAttributeDataStore(){
         fredBase = new Texture("FredBaseTemplate.png");
+        fredExterior = new Texture("FredExterior.png");
 
         cardiovascular = new CardiovascularSystem();
         nervous = new NervousSystem();
@@ -91,6 +93,9 @@ public class FredAttributeDataStore {
     public Texture getBaseTexture(){
         return fredBase;
     }
+    public Texture getExteriorTexture(){
+        return fredExterior;
+    }
 
     public void dispose(){
         fredBase.dispose();
@@ -122,9 +127,7 @@ public class FredAttributeDataStore {
 
 
     public void deteriorate(){
-        for (System sys : getActivatedSystems()){
-            sys.reactToStimuli(new Stimulus("deteriorate"));
-        }
+        reactToStimuli(new Stimulus("deteriorate"));
     }
 
 }

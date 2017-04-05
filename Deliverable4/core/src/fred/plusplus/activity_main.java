@@ -3,7 +3,9 @@ package fred.plusplus;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
 import java.util.ArrayList;
 
@@ -21,6 +23,8 @@ public class activity_main {
     private int metricPos;
 
     private SpriteBatch batch;
+    private BitmapFont font;
+
 
     private Texture red;
     private Texture yellow;
@@ -30,6 +34,10 @@ public class activity_main {
 
     public activity_main(FredAttributeDataStore fred) {
         batch = new SpriteBatch();
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = 85;
+        font = new FreeTypeFontGenerator(Gdx.files.internal("Bubblegum.ttf")).generateFont(parameter);
+
         red = new Texture("Red.png");
         yellow = new Texture("Yellow.png");
         green = new Texture("Green.png");
@@ -132,8 +140,15 @@ public class activity_main {
             batch.draw(red, posX, metricPos, width, red.getHeight());
         }
         batch.end();
-        metricPos -= 55;
-        metricPos -= 55;
+        metricPos -= 60;
+    }
+
+    public void drawTitlePage(Texture base, Texture clothes){
+        batch.begin();
+        batch.draw(base, 0, 0);
+        batch.draw(clothes, 0, 0);
+        font.draw(batch, "Fred++", 200, 200);
+        batch.end();
     }
 
     public void dispose () {

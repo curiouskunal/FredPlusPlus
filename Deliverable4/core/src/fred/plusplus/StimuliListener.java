@@ -34,6 +34,8 @@ public class StimuliListener extends Listener{
             }
         }
 
+        MainActivity.titleScreen = false;
+
         return false;
     }
 }

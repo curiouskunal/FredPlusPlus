@@ -16,7 +16,6 @@ public class NervousSystem extends System {
 
         listOfMetrics = new ArrayList<Metric>();
 
-        listOfMetrics.add(new Metric("pain_head", 0));
         listOfMetrics.add(new Metric("dizziness", 0));
         listOfMetrics.add(new Metric("happiness", 50));
     }
@@ -29,22 +28,10 @@ public class NervousSystem extends System {
         else if (s.name.equals("food_healthy")) {
         }
         else if (s.name.equals("food_spoiled")) {
-            changes.add(new MetricChange("pain_head", 0));
             changes.add(new MetricChange("dizziness", 20));
             changes.add(new MetricChange("happiness", -20));
         }
-        else if (s.name.equals("drink_stimulant")) {
-            changes.add(new MetricChange("pain_head", 0));
-            changes.add(new MetricChange("dizziness", 10));
-            changes.add(new MetricChange("happiness", 15));
-        }
-        else if (s.name.equals("drink_hydration")) {
-            changes.add(new MetricChange("pain_head", 0));
-            changes.add(new MetricChange("dizziness", -10));
-            changes.add(new MetricChange("happiness", 5));
-        }
         else if (s.name.equals("drink_depressant")) {
-            changes.add(new MetricChange("pain_head", 0));
             changes.add(new MetricChange("dizziness", 30));
             changes.add(new MetricChange("happiness", 30));
         }
@@ -76,15 +63,9 @@ public class NervousSystem extends System {
             changes.add(new MetricChange("happiness", 25));
         }
         else if (s.name.equals("exercise_cardio")) {
-            changes.add(new MetricChange("pain_head", 0));
             changes.add(new MetricChange("dizziness", 2));
         }
         else if (s.name.equals("medicine_painkiller")) {
-            changes.add(new MetricChange("pain_head", -30));
-            changes.add(new MetricChange("dizziness", 0));
-        }
-        else if (s.name.equals("medicine_painkiller_strong")) {
-            changes.add(new MetricChange("pain_head", -50));
             changes.add(new MetricChange("dizziness", 0));
         }
 
