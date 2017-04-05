@@ -1,8 +1,12 @@
-Car Crash:Bones,-25,BloodLoss,-15,5
-Fall Down Stairs:Bones,-15,MuscleStrain,-10,8
-Stressed Out:Happyness,-10,10
-Burst of Motivation:Happyness,10,10
-Donated Blood:BloodPressure,-10,5
-Ebola:Hydration,-25,Hunger,-20,Happyness,-5,1
-Acid Reflex:Hunger,-5,Happyness,-5,10
-Twisted Ankle:MuscleStrain,-15,10
+Car Crash,5,Bones,-25,blood_pressure,-15,overall_health,-30
+Fall Down Stairs,8,Bones,-15,MuscleStrain,-10
+Panic Attack,10,Happyness,-10
+Burst of Motivation,10,Happyness,10
+Donated Blood,5,BloodPressure,-10
+Ebola,1,Hydration,-25,Hunger,-20,Happyness,-5
+Acid Reflex,10,Hunger,-5,Happyness,-5
+Twisted Ankle,10,MuscleStrain,-15
+Slowed Motabolism,10,weight,20
+Stomach Torsion,5,pain_stomach,40
+Puberty,8,strength,15
+Slept on Neck,15,pain_body,20
