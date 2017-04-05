@@ -7,20 +7,17 @@ import java.util.ArrayList;
  */
 
 public class RandomEvent {
-    ArrayList<MetricChange> effects;
     String name;
     int probability;
 
-    public RandomEvent(ArrayList<MetricChange> effects, String name, int probability){
-        this.effects = effects;
+    public RandomEvent(String name, int probability){
+
         this.name = name;
         this.probability = probability;
     }
     public int getProbability(){
         return this.probability;
     }
-    public ArrayList<MetricChange> getEffects(){
-        return this.effects;
-    }
+    public String getName(){return this.name;}
 
 }

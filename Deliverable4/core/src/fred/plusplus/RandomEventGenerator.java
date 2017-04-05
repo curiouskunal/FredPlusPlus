@@ -24,7 +24,7 @@ public class RandomEventGenerator {
     }
     private void ParseEvents(){
 
-        FredAttributeDataStore fred = new FredAttributeDataStore();
+
         String path = System.getProperty("user.dir");
         try {
             FileReader input = new FileReader(path + "\\src\\data\\RandomEvents.txt");
@@ -32,17 +32,11 @@ public class RandomEventGenerator {
             String myLine = null;
             ArrayList<RandomEvent> Randomevents = new ArrayList<RandomEvent>();
             while ((myLine = bufRead.readLine()) != null) {
-                String[] array1 = myLine.split(":");
-                String[] array2 = array1[1].split(",");
-                // check to make sure you have valid data
+                String[] array1 = myLine.split(",");
                 String EventName = array1[0];
                 ArrayList<MetricChange> changes = new ArrayList<MetricChange>();
-                int probabilityNum = Integer.parseInt(array2[array2.length - 1]);
-                for (int i = 0; i < array2.length - 1; i = i + 2) {
-                    //needs to match the metrics that fred has
-                    changes.add(new MetricChange(fred.getMetrics().get(i/*Temp*/),Integer.parseInt(array2[i+1])));
-                }
-                Randomevents.add(new RandomEvent(changes, EventName, probabilityNum));
+                int probabilityNum = Integer.parseInt(array1[1]);
+                Randomevents.add(new RandomEvent(EventName, probabilityNum));
             }
         this.events = Randomevents;
         }catch (IOException ex){
@@ -79,9 +73,8 @@ public class RandomEventGenerator {
     * applies them
      */
     private void ApplyEvent(int e){
-        for(MetricChange list: this.events.get(e).getEffects()){
-            //apply MetricChange
-        }
+        FredAttributeDataStore fred = new FredAttributeDataStore();
+        fred.reactToStimuli(new Stimulus(events.get(e).getName()));
     }
     /*  checkInterval(b,lower,higher)
     * b - the index of the number the program desires
