@@ -55,6 +55,10 @@ public class FredAttributeDataStore {
         return active;
     }
 
+    public void reactToStimuli (Stimulus s) {
+        netResultCalc.reactToStimuli(s);
+    }
+
     public ArrayList<System> getVisibleSystems(){
         ArrayList<System> visible = new ArrayList<System>();
 

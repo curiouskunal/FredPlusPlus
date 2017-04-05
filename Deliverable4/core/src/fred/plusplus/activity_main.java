@@ -51,16 +51,16 @@ public class activity_main {
         toggleListener.addButton("locomotor", "activeLocomotor.png", "inactiveLocomotor.png");
         toggleListener.addButton("digestive", "activeDigestive.png", "inactiveDigestive.png");
 
-        stimuliListener.addButton(0, "cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png", new Stimulus("exercise"));
-        stimuliListener.addButton(space, "cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png", new Stimulus("medicine"));
+        stimuliListener.addButton(0, "cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png", new Stimulus("exercise_cardio"));
+        stimuliListener.addButton(space, "cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png", new Stimulus("medicine_painkiller"));
 
         stimuliListener.addButton(space*2, "digestive", "activeDigestive.png", "inactiveDigestive.png", new Stimulus("food_unhealthy"));
-        stimuliListener.addButton(space*3, "digestive", "activeDigestive.png", "inactiveDigestive.png", new Stimulus("drink"));
+        stimuliListener.addButton(space*3, "digestive", "activeDigestive.png", "inactiveDigestive.png", new Stimulus("drink_hydration"));
 
-        stimuliListener.addButton(space*4, "locomotor", "activeLocomotor.png", "inactiveLocomotor.png", new Stimulus("exercise"));
+        stimuliListener.addButton(space*4, "locomotor", "activeLocomotor.png", "inactiveLocomotor.png", new Stimulus("exercise_strength"));
         stimuliListener.addButton(space*5, "locomotor", "activeLocomotor.png", "inactiveLocomotor.png", new Stimulus("bandage"));
 
-        stimuliListener.addButton(space*6, "nervous", "activeNervous.png", "inactiveNervous.png", new Stimulus("homework"));
+        stimuliListener.addButton(space*6, "nervous", "activeNervous.png", "inactiveNervous.png", new Stimulus("homework_elective"));
         stimuliListener.addButton(space*7, "nervous", "activeNervous.png", "inactiveNervous.png", new Stimulus("partying"));
 
         //This is how libGDX handles multiple different input listeners
@@ -133,8 +133,7 @@ public class activity_main {
         }
         batch.end();
         metricPos -= 55;
-        Gdx.app.log("MyTag", "my informative message");
-
+        metricPos -= 55;
     }
 
     public void dispose () {

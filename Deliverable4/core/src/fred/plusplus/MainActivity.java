@@ -26,6 +26,7 @@ public class MainActivity extends ApplicationAdapter {
 		view.draw(fred.getBaseTexture(), 0, 0);
 		view.drawSubSystems(fred.getVisibleSystems());
 		view.drawButtons();
+
 		for (Metric m : fred.getMetrics()){
 			view.drawMetric(m);
 		}

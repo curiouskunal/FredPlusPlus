@@ -28,11 +28,7 @@ public class StimuliListener extends Listener{
         for (Button b : buttons){
             if (b.intersects(x, y)){
 
-                for (System sys : fred.getActivatedSystems()){
-                    if (b.getSubSystem().equals(sys.getName())){
-                        sys.reactToStimuli(b.getStimulus());
-                    }
-                }
+                fred.reactToStimuli(b.getStimulus());
 
                 return true; // return true to indicate the event was handled
             }
