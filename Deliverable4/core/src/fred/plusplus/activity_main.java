@@ -59,17 +59,17 @@ public class activity_main {
         toggleListener.addButton("locomotor", "activeLocomotor.png", "inactiveLocomotor.png");
         toggleListener.addButton("digestive", "activeDigestive.png", "inactiveDigestive.png");
 
-        stimuliListener.addButton(0, "cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png", new Stimulus("exercise_cardio"));
-        stimuliListener.addButton(space, "cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png", new Stimulus("medicine_painkiller"));
+        stimuliListener.addButton(0, "cardiovascular", "StimuliButton_Treadmill.png", "inactiveCardiovascular.png", new Stimulus("exercise_cardio"));
+        stimuliListener.addButton(space, "cardiovascular", "StimuliButton_Medicine.png", "inactiveCardiovascular.png", new Stimulus("medicine_painkiller"));
 
-        stimuliListener.addButton(space*2, "digestive", "activeDigestive.png", "inactiveDigestive.png", new Stimulus("food_unhealthy"));
-        stimuliListener.addButton(space*3, "digestive", "activeDigestive.png", "inactiveDigestive.png", new Stimulus("drink_hydration"));
+        stimuliListener.addButton(space*2, "digestive", "StimuliButton_Burger.png", "inactiveDigestive.png", new Stimulus("food_unhealthy"));
+        stimuliListener.addButton(space*3, "digestive", "StimuliButton_Beer.png", "inactiveDigestive.png", new Stimulus("drink_hydration"));
 
-        stimuliListener.addButton(space*4, "locomotor", "activeLocomotor.png", "inactiveLocomotor.png", new Stimulus("exercise_strength"));
-        stimuliListener.addButton(space*5, "locomotor", "activeLocomotor.png", "inactiveLocomotor.png", new Stimulus("bandage"));
+        stimuliListener.addButton(space*4, "locomotor", "StimuliButton_Exercise.png", "inactiveLocomotor.png", new Stimulus("exercise_strength"));
+        stimuliListener.addButton(space*5, "locomotor", "StimuliButton_Bandaid.png", "inactiveLocomotor.png", new Stimulus("bandage"));
 
-        stimuliListener.addButton(space*6, "nervous", "activeNervous.png", "inactiveNervous.png", new Stimulus("homework_elective"));
-        stimuliListener.addButton(space*7, "nervous", "activeNervous.png", "inactiveNervous.png", new Stimulus("partying"));
+        stimuliListener.addButton(space*6, "nervous", "StimuliButton_Homework.png", "inactiveNervous.png", new Stimulus("homework_elective"));
+        stimuliListener.addButton(space*7, "nervous", "StimuliButton_Party.png", "inactiveNervous.png", new Stimulus("partying"));
 
         //This is how libGDX handles multiple different input listeners
         //Whenever a touch event happens, it will pass it to the first listener
