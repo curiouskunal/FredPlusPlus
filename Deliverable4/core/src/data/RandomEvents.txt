@@ -1,0 +1,8 @@
+Car Crash:Bones,-25,BloodLoss,-15,5
+Fall Down Stairs:Bones,-15,MuscleStrain,-10,8
+Stressed Out:Happyness,-10,10
+Burst of Motivation:Happyness,10,10
+Donated Blood:BloodPressure,-10,5
+Ebola:Hydration,-25,Hunger,-20,Happyness,-5,1
+Acid Reflex:Hunger,-5,Happyness,-5,10
+Twisted Ankle:MuscleStrain,-15,10
