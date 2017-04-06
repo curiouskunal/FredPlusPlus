@@ -35,8 +35,8 @@ public class activity_main {
     public activity_main(FredAttributeDataStore fred) {
         batch = new SpriteBatch();
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 85;
-        font = new FreeTypeFontGenerator(Gdx.files.internal("Bubblegum.ttf")).generateFont(parameter);
+        parameter.size = 160;
+        font = new FreeTypeFontGenerator(Gdx.files.internal("Fonts//Bubblegum.ttf")).generateFont(parameter);
 
         red = new Texture("Red.png");
         yellow = new Texture("Yellow.png");
@@ -49,27 +49,27 @@ public class activity_main {
         stimuliListener = new StimuliListener(fred);
         toggleListener = new ToggleSubsystemListener(fred, showListener, stimuliListener);
 
-        showListener.addButton("cardiovascular", "shownCardiovascular.png", "hiddenCardiovascular.png");
         showListener.addButton("nervous", "shownNervous.png", "hiddenNervous.png");
-        showListener.addButton("locomotor", "shownLocomotor.png", "hiddenLocomotor.png");
+        showListener.addButton("cardiovascular", "shownCardiovascular.png", "hiddenCardiovascular.png");
         showListener.addButton("digestive", "shownDigestive.png", "hiddenDigestive.png");
+        showListener.addButton("locomotor", "shownLocomotor.png", "hiddenLocomotor.png");
 
-        toggleListener.addButton("cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png");
         toggleListener.addButton("nervous", "activeNervous.png", "inactiveNervous.png");
-        toggleListener.addButton("locomotor", "activeLocomotor.png", "inactiveLocomotor.png");
+        toggleListener.addButton("cardiovascular", "activeCardiovascular.png", "inactiveCardiovascular.png");
         toggleListener.addButton("digestive", "activeDigestive.png", "inactiveDigestive.png");
+        toggleListener.addButton("locomotor", "activeLocomotor.png", "inactiveLocomotor.png");
 
-        stimuliListener.addButton(0, "cardiovascular", "StimuliButton_Treadmill.png", "inactiveCardiovascular.png", new Stimulus("exercise_cardio"));
-        stimuliListener.addButton(space, "cardiovascular", "StimuliButton_Medicine.png", "inactiveCardiovascular.png", new Stimulus("medicine_painkiller"));
+        stimuliListener.addButton(0, "nervous", "StimuliButton_Homework.png", "inactiveNervous.png", new Stimulus("homework"));
+        stimuliListener.addButton(space, "nervous", "StimuliButton_Party.png", "inactiveNervous.png", new Stimulus("partying"));
 
-        stimuliListener.addButton(space*2, "digestive", "StimuliButton_Burger.png", "inactiveDigestive.png", new Stimulus("food_unhealthy"));
-        stimuliListener.addButton(space*3, "digestive", "StimuliButton_Beer.png", "inactiveDigestive.png", new Stimulus("drink_hydration"));
+        stimuliListener.addButton(space*2, "cardiovascular", "StimuliButton_Treadmill.png", "inactiveCardiovascular.png", new Stimulus("running"));
+        stimuliListener.addButton(space*3, "cardiovascular", "StimuliButton_Medicine.png", "inactiveCardiovascular.png", new Stimulus("medicine"));
 
-        stimuliListener.addButton(space*4, "locomotor", "StimuliButton_Exercise.png", "inactiveLocomotor.png", new Stimulus("exercise_strength"));
-        stimuliListener.addButton(space*5, "locomotor", "StimuliButton_Bandaid.png", "inactiveLocomotor.png", new Stimulus("bandage"));
+        stimuliListener.addButton(space*4, "digestive", "StimuliButton_Burger.png", "inactiveDigestive.png", new Stimulus("food"));
+        stimuliListener.addButton(space*5, "digestive", "StimuliButton_Beer.png", "inactiveDigestive.png", new Stimulus("drink"));
 
-        stimuliListener.addButton(space*6, "nervous", "StimuliButton_Homework.png", "inactiveNervous.png", new Stimulus("homework_elective"));
-        stimuliListener.addButton(space*7, "nervous", "StimuliButton_Party.png", "inactiveNervous.png", new Stimulus("partying"));
+        stimuliListener.addButton(space*6, "locomotor", "StimuliButton_Exercise.png", "inactiveLocomotor.png", new Stimulus("lift_weights"));
+        stimuliListener.addButton(space*7, "locomotor", "StimuliButton_Bandaid.png", "inactiveLocomotor.png", new Stimulus("bandage"));
 
         //This is how libGDX handles multiple different input listeners
         //Whenever a touch event happens, it will pass it to the first listener
@@ -126,28 +126,40 @@ public class activity_main {
     }
 
     public void drawMetric(Metric m){
-        int posX = 1150;
+        int posX = 1210;
         int width = (int)2.5*m.getValue() + 10;
 
         batch.begin();
-        if (m.getValue() > 70){
-            batch.draw(green, posX, metricPos, width, green.getHeight());
+
+        batch.draw(m.getImage(), posX - 100, metricPos - 30, 100, 100);
+
+        if (m.isGood()) {
+            if (m.getValue() > 70) {
+                batch.draw(green, posX, metricPos, width, green.getHeight());
+            } else if (m.getValue() > 30) {
+                batch.draw(yellow, posX, metricPos, width, yellow.getHeight());
+            } else {
+                batch.draw(red, posX, metricPos, width, red.getHeight());
+            }
         }
-        else if (m.getValue() > 30){
-            batch.draw(yellow, posX, metricPos, width, yellow.getHeight());
-        }
-        else{
-            batch.draw(red, posX, metricPos, width, red.getHeight());
+        else {
+            if (m.getValue() < 30) {
+                batch.draw(green, posX, metricPos, width, green.getHeight());
+            } else if (m.getValue() < 70) {
+                batch.draw(yellow, posX, metricPos, width, yellow.getHeight());
+            } else {
+                batch.draw(red, posX, metricPos, width, red.getHeight());
+            }
         }
         batch.end();
-        metricPos -= 60;
+        metricPos -= 95;
     }
 
     public void drawTitlePage(Texture base, Texture clothes){
         batch.begin();
         batch.draw(base, 0, 0);
         batch.draw(clothes, 0, 0);
-        font.draw(batch, "Fred++", 200, 200);
+        font.draw(batch, "Fred++", 500, 180);
         batch.end();
     }
 

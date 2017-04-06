@@ -16,14 +16,18 @@ public class NervousSystem extends System {
 
         listOfMetrics = new ArrayList<Metric>();
 
-        listOfMetrics.add(new Metric("dizziness", 0));
-        listOfMetrics.add(new Metric("happiness", 50));
+        listOfMetrics.add(new Metric("dizziness", 0, new Texture("Dizzy.png"), false));
+        listOfMetrics.add(new Metric("happiness", 50, new Texture("Happy.png"), true));
     }
 
     public ArrayList<MetricChange> reactToStimuli(Stimulus s){
         ArrayList<MetricChange> changes = new ArrayList<MetricChange>();
 
-        if (s.name.equals("food_unhealthy")) {
+        if (s.name.equals("deteriorate")){
+            changes.add(new MetricChange("dizziness", -1));
+            changes.add(new MetricChange("happiness", -1));
+        }
+        else if (s.name.equals("food_unhealthy")) {
         }
         else if (s.name.equals("food_healthy")) {
         }

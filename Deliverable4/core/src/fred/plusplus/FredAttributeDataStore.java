@@ -16,6 +16,8 @@ public class FredAttributeDataStore {
     private ArrayList<System> subSystems = new ArrayList<System>();
     private ArrayList<Stimulus> availableStimuli = new ArrayList<Stimulus>();
 
+    private int count = 0;
+
     private CardiovascularSystem cardiovascular;
     private NervousSystem nervous;
     private LocomotorSystem locomotor;
@@ -27,14 +29,14 @@ public class FredAttributeDataStore {
         fredBase = new Texture("FredBaseTemplate.png");
         fredExterior = new Texture("FredExterior.png");
 
-        cardiovascular = new CardiovascularSystem();
         nervous = new NervousSystem();
-        locomotor = new LocomotorSystem();
+        cardiovascular = new CardiovascularSystem();
         digestive = new DigestiveSystem();
+        locomotor = new LocomotorSystem();
 
+        subSystems.add(nervous);
         subSystems.add(locomotor);
         subSystems.add(cardiovascular);
-        subSystems.add(nervous);
         subSystems.add(digestive);
 
         netResultCalc = new NetResultCalc(this);
@@ -127,7 +129,11 @@ public class FredAttributeDataStore {
 
 
     public void deteriorate(){
-        reactToStimuli(new Stimulus("deteriorate"));
+        if (count >= 50) {
+            reactToStimuli(new Stimulus("deteriorate"));
+            count = 0;
+        }
+        count ++;
     }
 
 }

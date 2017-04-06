@@ -16,8 +16,8 @@ public class LocomotorSystem extends System {
 
         listOfMetrics = new ArrayList<Metric>();
 
-        listOfMetrics.add(new Metric("strength", 50));
-        listOfMetrics.add(new Metric("pain_body", 0));
+        listOfMetrics.add(new Metric("strength", 50, new Texture("Strength.png"), true));
+        listOfMetrics.add(new Metric("pain_body", 0, new Texture("activeLocomotor.png"), false));
     }
 
     public ArrayList<MetricChange> reactToStimuli(Stimulus s){

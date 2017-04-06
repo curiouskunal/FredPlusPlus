@@ -11,11 +11,13 @@ public class Metric {
     private String name;
     private int value;
     private Texture image;
+    private boolean isGood;
 
-    public Metric(String name, int value){
+    public Metric(String name, int value, Texture image, boolean isGood){
         this.name = name;
         this.value = value;
-       // this.image = image;
+        this.image = image;
+        this.isGood = isGood;
     }
 
     public int getValue() { return value; }
@@ -23,8 +25,12 @@ public class Metric {
     public void increment (int delta) {
         int n = value + delta;
 
-        if (n < 0) n = 0;
-        if (n > 100) n = 100;
+        if (n < 0) {
+            n = 0;
+        }
+        if (n > 100) {
+            n = 100;
+        }
 
         value = n;
     }
@@ -32,5 +38,6 @@ public class Metric {
     public String getName(){
         return name;
     }
-
+    public Texture getImage() { return image; }
+    public boolean isGood(){ return isGood; }
 }
