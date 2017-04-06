@@ -10,6 +10,7 @@ public class MainActivity extends ApplicationAdapter {
 	private FredAttributeDataStore fred;
 	static boolean titleScreen;
 	private FredPoller poller;
+	private DeteriorateController deteriorateController;
 
 	@Override
 	//create() gets called once, at the start of the game launch
@@ -17,12 +18,17 @@ public class MainActivity extends ApplicationAdapter {
         fred = new FredAttributeDataStore();
 		eventGen = new RandomEventGenerator(100);
         view = new activity_main(fred);
+
 		poller = new FredPoller(fred);
+		deteriorateController = new DeteriorateController(fred);
 
 		titleScreen = true;
 
-		Thread t = new Thread(poller);
-		t.start();
+		Thread pollerThread = new Thread(poller);
+		pollerThread.start();
+
+		Thread deteriorateThread = new Thread(deteriorateController);
+		deteriorateThread.start();
 	}
 
 	@Override
