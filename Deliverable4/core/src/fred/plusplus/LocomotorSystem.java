@@ -58,6 +58,22 @@ public class LocomotorSystem extends System {
             changes.add(new MetricChange("strength", 0));
             changes.add(new MetricChange("pain_body", -10));
         }
+        else if (s.name.equals("slept_on_neck")) {
+            changes.add(new MetricChange("pain_body", 20));
+        }
+        else if (s.name.equals("puberty")) {
+            changes.add(new MetricChange("strength", 15));
+        }
+        else if (s.name.equals("twisted_ankle")) {
+            changes.add(new MetricChange("pain_body", 5));
+        }
+        else if (s.name.equals("fall_down_stairs")) {
+            changes.add(new MetricChange("pain_body", 5));
+        }
+        else if (s.name.equals("car_crash")) {
+            changes.add(new MetricChange("pain_body", 25));
+        }
+
 
         return changes;
     }

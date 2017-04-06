@@ -73,6 +73,20 @@ public class CardiovascularSystem extends System {
             changes.add(new MetricChange("resting_heart_rate", -10));
             changes.add(new MetricChange("overall_health", 5));
         }
+        else if (s.name.equals("ebola")) {
+            changes.add(new MetricChange("resting_heart_rate", 15));
+            changes.add(new MetricChange("overall_health", -20));
+        }
+        else if (s.name.equals("panic_attack")) {
+            changes.add(new MetricChange("resting_heart_rate", 10));
+        }
+        else if (s.name.equals("fall_down_stairs")) {
+            changes.add(new MetricChange("overall_health", -10));
+        }
+        else if (s.name.equals("car_crash")) {
+            changes.add(new MetricChange("resting_heart_rate", -15));
+            changes.add(new MetricChange("overall_health", -30));
+        }
 
         return changes;
     }

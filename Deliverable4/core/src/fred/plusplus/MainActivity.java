@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 public class MainActivity extends ApplicationAdapter {
 
 	private activity_main view;
+	private RandomEventGenerator eventGen;
 	private FredAttributeDataStore fred;
 	static boolean titleScreen;
 
@@ -13,6 +14,7 @@ public class MainActivity extends ApplicationAdapter {
 	//create() gets called once, at the start of the game launch
 	public void create () {
         fred = new FredAttributeDataStore();
+		eventGen = new RandomEventGenerator(100);
         view = new activity_main(fred);
 		titleScreen = true;
 	}
@@ -37,7 +39,7 @@ public class MainActivity extends ApplicationAdapter {
 			for (Metric m : fred.getMetrics()) {
 				view.drawMetric(m);
 			}
-
+			eventGen.GenerateEvent();
 			fred.deteriorate();
 		}
 	}

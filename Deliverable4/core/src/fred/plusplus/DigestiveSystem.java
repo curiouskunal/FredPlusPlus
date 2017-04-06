@@ -71,7 +71,17 @@ public class DigestiveSystem extends System {
         else if (s.name.equals("running")) {
             changes.add(new MetricChange("hunger", -5));
         }
-
+        else if (s.name.equals("acid_reflex")) {
+            changes.add(new MetricChange("hunger", -5));
+        }
+        else if (s.name.equals("ebola")) {
+            changes.add(new MetricChange("hunger", -20));
+            changes.add(new MetricChange("thirst", -25));
+            changes.add(new MetricChange("weight", -10));
+        }
+        else if (s.name.equals("slowed_motabolism")) {
+            changes.add(new MetricChange("weight", 20));
+        }
         return changes;
     }
 

@@ -67,6 +67,19 @@ public class NervousSystem extends System {
         else if (s.name.equals("medicine")) {
             changes.add(new MetricChange("dizziness", 10));
         }
+        else if (s.name.equals("acid_reflex")) {
+            changes.add(new MetricChange("happiness", -5));
+        }
+        else if (s.name.equals("ebola")) {
+            changes.add(new MetricChange("happiness", -20));
+            changes.add(new MetricChange("dizziness", 10));
+        }
+        else if (s.name.equals("burst_of_motivation")) {
+            changes.add(new MetricChange("happiness", 10));
+        }
+        else if (s.name.equals("panic_attack")) {
+            changes.add(new MetricChange("happiness", -10));
+        }
 
         return changes;
     }
