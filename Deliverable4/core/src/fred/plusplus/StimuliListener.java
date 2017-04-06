@@ -29,7 +29,7 @@ public class StimuliListener extends Listener{
             if (b.intersects(x, y)){
 
                 fred.reactToStimuli(b.getStimulus());
-
+                b.getStimulus().getSound().play(1.0f);
                 return true; // return true to indicate the event was handled
             }
         }

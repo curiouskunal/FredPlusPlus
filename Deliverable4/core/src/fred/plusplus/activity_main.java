@@ -59,17 +59,17 @@ public class activity_main {
         toggleListener.addButton("digestive", "activeDigestive.png", "inactiveDigestive.png");
         toggleListener.addButton("locomotor", "activeLocomotor.png", "inactiveLocomotor.png");
 
-        stimuliListener.addButton(0, "nervous", "StimuliButton_Homework.png", "inactiveNervous.png", new Stimulus("homework"));
-        stimuliListener.addButton(space, "nervous", "StimuliButton_Party.png", "inactiveNervous.png", new Stimulus("partying"));
+        stimuliListener.addButton(0, "nervous", "StimuliButton_Homework.png", "inactiveNervous.png", new Stimulus("homework", "Pencil.mp3"));
+        stimuliListener.addButton(space, "nervous", "StimuliButton_Party.png", "inactiveNervous.png", new Stimulus("partying", "Party.mp3"));
 
-        stimuliListener.addButton(space*2, "cardiovascular", "StimuliButton_Treadmill.png", "inactiveCardiovascular.png", new Stimulus("running"));
-        stimuliListener.addButton(space*3, "cardiovascular", "StimuliButton_Medicine.png", "inactiveCardiovascular.png", new Stimulus("medicine"));
+        stimuliListener.addButton(space*2, "cardiovascular", "StimuliButton_Treadmill.png", "inactiveCardiovascular.png", new Stimulus("running", "Treadmill.mp3"));
+        stimuliListener.addButton(space*3, "cardiovascular", "StimuliButton_Medicine.png", "inactiveCardiovascular.png", new Stimulus("medicine", "Medicine.mp3"));
 
-        stimuliListener.addButton(space*4, "digestive", "StimuliButton_Burger.png", "inactiveDigestive.png", new Stimulus("food"));
-        stimuliListener.addButton(space*5, "digestive", "StimuliButton_Beer.png", "inactiveDigestive.png", new Stimulus("drink"));
+        stimuliListener.addButton(space*4, "digestive", "StimuliButton_Burger.png", "inactiveDigestive.png", new Stimulus("food", "Burger.mp3"));
+        stimuliListener.addButton(space*5, "digestive", "StimuliButton_Beer.png", "inactiveDigestive.png", new Stimulus("drink", "Beer.mp3"));
 
-        stimuliListener.addButton(space*6, "locomotor", "StimuliButton_Exercise.png", "inactiveLocomotor.png", new Stimulus("lift_weights"));
-        stimuliListener.addButton(space*7, "locomotor", "StimuliButton_Bandaid.png", "inactiveLocomotor.png", new Stimulus("bandage"));
+        stimuliListener.addButton(space*6, "locomotor", "StimuliButton_Exercise.png", "inactiveLocomotor.png", new Stimulus("lift_weights", "Weights.mp3"));
+        stimuliListener.addButton(space*7, "locomotor", "StimuliButton_Bandaid.png", "inactiveLocomotor.png", new Stimulus("bandage", "Bandaid.mp3"));
 
         //This is how libGDX handles multiple different input listeners
         //Whenever a touch event happens, it will pass it to the first listener
@@ -128,6 +128,7 @@ public class activity_main {
     public void drawMetric(Metric m){
         int posX = 1210;
         int width = (int)2.5*m.getValue() + 10;
+        int height = 20;
 
         batch.begin();
 
@@ -135,20 +136,20 @@ public class activity_main {
 
         if (m.isGood()) {
             if (m.getValue() > 70) {
-                batch.draw(green, posX, metricPos, width, green.getHeight());
+                batch.draw(green, posX, metricPos, width, height);
             } else if (m.getValue() > 30) {
-                batch.draw(yellow, posX, metricPos, width, yellow.getHeight());
+                batch.draw(yellow, posX, metricPos, width, height);
             } else {
-                batch.draw(red, posX, metricPos, width, red.getHeight());
+                batch.draw(red, posX, metricPos, width, height);
             }
         }
         else {
             if (m.getValue() < 30) {
-                batch.draw(green, posX, metricPos, width, green.getHeight());
+                batch.draw(green, posX, metricPos, width, height);
             } else if (m.getValue() < 70) {
-                batch.draw(yellow, posX, metricPos, width, yellow.getHeight());
+                batch.draw(yellow, posX, metricPos, width, height);
             } else {
-                batch.draw(red, posX, metricPos, width, red.getHeight());
+                batch.draw(red, posX, metricPos, width, height);
             }
         }
         batch.end();

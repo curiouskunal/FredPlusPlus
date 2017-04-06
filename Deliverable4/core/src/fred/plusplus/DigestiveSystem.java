@@ -33,43 +33,22 @@ public class DigestiveSystem extends System {
                 if (m.getName().equals("hunger") && m.getValue() < 30){
                     changes.add(new MetricChange("weight", -1));
                 }
+                else if (m.getName().equals("hunger") && m.getValue() > 90){
+                    changes.add(new MetricChange("weight", 1));
+                }
             }
-        }
-        else if (s.name.equals("food_unhealthy")) {
-            changes.add(new MetricChange("intoxication_level", 0));
-            changes.add(new MetricChange("hunger", -20));
-            changes.add(new MetricChange("thirst", -5));
-            changes.add(new MetricChange("weight", 5));
         }
         else if (s.name.equals("food")) {
             changes.add(new MetricChange("intoxication_level", -5));
-            changes.add(new MetricChange("hunger", 10));
+            changes.add(new MetricChange("hunger", 15));
             changes.add(new MetricChange("thirst", -2));
-            changes.add(new MetricChange("weight", 2));
-        }
-        else if (s.name.equals("food_spoiled")) {
-            changes.add(new MetricChange("intoxication_level", 0));
-            changes.add(new MetricChange("hunger", 0));
-            changes.add(new MetricChange("thirst", 0));
-            changes.add(new MetricChange("weight", 0));
-        }
-        else if (s.name.equals("drink_stimulant")) {
-            changes.add(new MetricChange("intoxication_level", 0));
-            changes.add(new MetricChange("hunger", 0));
-            changes.add(new MetricChange("thirst", 0));
-            changes.add(new MetricChange("weight", 0));
-        }
-        else if (s.name.equals("drink_hydration")) {
-            changes.add(new MetricChange("intoxication_level", 0));
-            changes.add(new MetricChange("hunger", -5));
-            changes.add(new MetricChange("thirst", -50));
-            changes.add(new MetricChange("weight", 0));
+            changes.add(new MetricChange("weight", 5));
         }
         else if (s.name.equals("drink")) {
             changes.add(new MetricChange("intoxication_level", 25));
             changes.add(new MetricChange("hunger", 5));
             changes.add(new MetricChange("thirst", 25));
-            changes.add(new MetricChange("weight", 5));
+            changes.add(new MetricChange("weight", 2));
         }
         else if (s.name.equals("random_injury")) {
             changes.add(new MetricChange("intoxication_level", 0));
@@ -80,6 +59,17 @@ public class DigestiveSystem extends System {
         }
         else if (s.name.equals("partying")) {
             changes.add(new MetricChange("intoxication_level", 30));
+            changes.add(new MetricChange("hunger", 15));
+            changes.add(new MetricChange("thirst", 15));
+            changes.add(new MetricChange("weight", 5));
+        }
+        else if (s.name.equals("lift_weights")) {
+            changes.add(new MetricChange("weight", -5));
+            changes.add(new MetricChange("hunger", -10));
+        }
+        else if (s.name.equals("running")) {
+            changes.add(new MetricChange("weight", -10));
+            changes.add(new MetricChange("hunger", -10));
         }
 
         return changes;
