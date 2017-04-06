@@ -17,43 +17,31 @@ public class RandomEventGenerator {
     int[] probabilityIntervals;
 
 
-    public RandomEventGenerator(int PSize){
-        ParseEvents();
+    public RandomEventGenerator(int PSize,ArrayList<RandomEvent> event){
+        //this.events = new ArrayList<RandomEvent>();
+        this.events = event;
+        ParseEvents(PSize);
+
         this.probabilitySize = PSize;// out of the size of 100 normally
     }
-    private void ParseEvents(){
+
+    private void ParseEvents(int size){
 
 
-        String path = System.getProperty("user.dir");
-        try {
-            FileReader input = new FileReader(path + "\\src\\data\\RandomEvents.txt");
-            BufferedReader bufRead = new BufferedReader(input);
-            String myLine = null;
-            ArrayList<RandomEvent> Randomevents = new ArrayList<RandomEvent>();
-            while ((myLine = bufRead.readLine()) != null) {
-                String[] array1 = myLine.split(",");
-                String EventName = array1[0];
-                int probabilityNum = Integer.parseInt(array1[1]);
-                Randomevents.add(new RandomEvent(EventName, probabilityNum));
-            }
-        this.events = Randomevents;
             //assign probability
-            probabilityIntervals = new int[events.size()+2];//plus one because of the 0 and probsize
+            this.probabilityIntervals = new int[events.size()+2];//plus one because of the 0 and probsize
             int interval = 0;
             int i = 1;
-            probabilityIntervals[0] = 0;//lower portion of the intervals
+            this.probabilityIntervals[0] = 0;//lower portion of the intervals
 
             for(RandomEvent list: events){
-                probabilityIntervals[i] = interval + list.getProbability();
+                this.probabilityIntervals[i] = interval + list.getProbability();
                 interval = list.getProbability();
                 i++;
             }
-
-        probabilityIntervals[i]=probabilitySize;//highest portion of the intervals
-        }catch (IOException ex){
-        }
-
+            this.probabilityIntervals[i] = size;
     }
+
     public void GenerateEvent(){
         Random rand = new Random();
         int pick = rand.nextInt(this.probabilitySize);
