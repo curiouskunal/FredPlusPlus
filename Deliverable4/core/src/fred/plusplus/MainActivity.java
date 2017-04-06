@@ -39,7 +39,7 @@ public class MainActivity extends ApplicationAdapter {
 			for (Metric m : fred.getMetrics()) {
 				view.drawMetric(m);
 			}
-			eventGen.GenerateEvent();
+			//eventGen.GenerateEvent();
 			fred.deteriorate();
 		}
 	}
