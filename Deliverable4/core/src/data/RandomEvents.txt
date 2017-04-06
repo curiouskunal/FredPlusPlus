@@ -1,12 +1,10 @@
-Car Crash,5,Bones,-25,blood_pressure,-15,overall_health,-30
-Fall Down Stairs,8,Bones,-15,MuscleStrain,-10
-Panic Attack,10,Happyness,-10
-Burst of Motivation,10,Happyness,10
-Donated Blood,5,BloodPressure,-10
-Ebola,1,Hydration,-25,Hunger,-20,Happyness,-5
-Acid Reflex,10,Hunger,-5,Happyness,-5
-Twisted Ankle,10,MuscleStrain,-15
-Slowed Motabolism,10,weight,20
-Stomach Torsion,5,pain_stomach,40
-Puberty,8,strength,15
-Slept on Neck,15,pain_body,20
+car_crash,5,pain_body,-25,blood_pressure,-15,overall_health,-30
+fall_down_stairs,8,overall_health,-10,pain_body,-10
+panic_attack,10,Happyness,-10
+burst_of_motivation,10,Happyness,10
+ebola,1,Hydration,-25,Hunger,-20,Happyness,-5,weight,-10,resting_heart_rate,15,overall_health,-20,dizzyness,10
+acid_reflex,10,Hunger,-5,Happyness,-5
+twisted_ankle,10,pain_body,-5
+slowed_motabolism,10,weight,20
+puberty,8,strength,15
+slept_on_neck,15,pain_body,20

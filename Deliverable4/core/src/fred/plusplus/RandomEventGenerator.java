@@ -19,8 +19,7 @@ public class RandomEventGenerator {
 
     public RandomEventGenerator(int PSize){
         ParseEvents();
-        this.probabilitySize = PSize;// out of the size of 100
-        ProbabilityAssign();
+        this.probabilitySize = PSize;// out of the size of 100 normally
     }
     private void ParseEvents(){
 
@@ -34,31 +33,32 @@ public class RandomEventGenerator {
             while ((myLine = bufRead.readLine()) != null) {
                 String[] array1 = myLine.split(",");
                 String EventName = array1[0];
-                ArrayList<MetricChange> changes = new ArrayList<MetricChange>();
                 int probabilityNum = Integer.parseInt(array1[1]);
                 Randomevents.add(new RandomEvent(EventName, probabilityNum));
             }
         this.events = Randomevents;
+            //assign probability
+            probabilityIntervals = new int[events.size()+2];//plus one because of the 0 and probsize
+            int interval = 0;
+            int i = 1;
+            probabilityIntervals[0] = 0;//lower portion of the intervals
+
+            for(RandomEvent list: events){
+                probabilityIntervals[i] = interval + list.getProbability();
+                interval = list.getProbability();
+                i++;
+            }
+
+        probabilityIntervals[i]=probabilitySize;//highest portion of the intervals
         }catch (IOException ex){
         }
-    }
 
-    private void ProbabilityAssign(){
-        probabilityIntervals = new int[this.events.size()+2];//plus one because of the 0 and probsize
-        int interval = 0;
-        int i = 1;
-        probabilityIntervals[0] = 0;//lower portion of the intervals
-        for(RandomEvent list: this.events){
-            this.probabilityIntervals[i] = interval + list.getProbability();
-            i++;
-        }
-        probabilityIntervals[i]=probabilitySize;//highest portion of the intervals
     }
-    private void GenerateEvent(){
+    public void GenerateEvent(){
         Random rand = new Random();
         int pick = rand.nextInt(this.probabilitySize);
         int i = 0;
-        for(RandomEvent list: this.events){
+        for(RandomEvent list: events){
             if(checkInterval(pick,this.probabilityIntervals[i],this.probabilityIntervals[i+1])&&
                     this.probabilityIntervals[i+1]!=probabilitySize) {
             ApplyEvent(i);//return the event that has the probabilty
@@ -66,6 +66,7 @@ public class RandomEventGenerator {
             i++;
         }
         //nothing happens
+
     }
     /*ApplyEvent(e)
     * e - the index of the event that is being applied
