@@ -164,7 +164,15 @@ public class activity_main {
         batch.end();
     }
 
+    public void drawDeathPage(Texture base) {
+        batch.begin();
+        batch.draw(base, 0, 0);
+        font.draw(batch, "You died!", 450, 180);
+        batch.end();
+    }
+
     public void dispose () {
         batch.dispose();
     }
+
 }

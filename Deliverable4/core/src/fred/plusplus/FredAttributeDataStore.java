@@ -23,6 +23,8 @@ public class FredAttributeDataStore {
     private LocomotorSystem locomotor;
     private DigestiveSystem digestive;
 
+    private boolean dead = false;
+
     NetResultCalc netResultCalc;
 
     public FredAttributeDataStore(){
@@ -135,5 +137,11 @@ public class FredAttributeDataStore {
         }
         count ++;
     }
+
+    public void signalDeath() {
+        dead = true;
+    }
+
+    public boolean dead() { return dead; }
 
 }

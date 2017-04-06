@@ -28,11 +28,13 @@ public class Metric {
         if (n < 0) {
             n = 0;
         }
-        if (n > 100) {
+        else if (n > 100) {
             n = 100;
         }
+        else {
+            value = n;
+        }
 
-        value = n;
     }
 
     public String getName(){

@@ -9,6 +9,7 @@ public class MainActivity extends ApplicationAdapter {
 	private RandomEventGenerator eventGen;
 	private FredAttributeDataStore fred;
 	static boolean titleScreen;
+	private FredPoller poller;
 
 	@Override
 	//create() gets called once, at the start of the game launch
@@ -16,7 +17,12 @@ public class MainActivity extends ApplicationAdapter {
         fred = new FredAttributeDataStore();
 		eventGen = new RandomEventGenerator(100);
         view = new activity_main(fred);
+		poller = new FredPoller(fred);
+
 		titleScreen = true;
+
+		Thread t = new Thread(poller);
+		t.start();
 	}
 
 	@Override
@@ -26,7 +32,11 @@ public class MainActivity extends ApplicationAdapter {
 		Gdx.gl.glClearColor(1, 0, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		if (titleScreen){
+		if (fred.dead()) {
+			view.drawBG();
+			view.drawDeathPage(fred.getBaseTexture());
+		}
+		else if (titleScreen) {
 			view.drawBG();
 			view.drawTitlePage(fred.getBaseTexture(), fred.getExteriorTexture());
 		}
