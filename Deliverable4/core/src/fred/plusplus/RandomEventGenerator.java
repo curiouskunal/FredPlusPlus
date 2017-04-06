@@ -15,7 +15,7 @@ public class RandomEventGenerator {
     ArrayList <RandomEvent> events;
     int probabilitySize;
     int[] probabilityIntervals;
-
+    FredAttributeDataStore fred = new FredAttributeDataStore();
 
     public RandomEventGenerator(int PSize,ArrayList<RandomEvent> event){
         //this.events = new ArrayList<RandomEvent>();
@@ -62,7 +62,7 @@ public class RandomEventGenerator {
     * applies them
      */
     private void ApplyEvent(int e){
-        FredAttributeDataStore fred = new FredAttributeDataStore();
+
         fred.reactToStimuli(new Stimulus(events.get(e).getName()));
     }
     /*  checkInterval(b,lower,higher)
