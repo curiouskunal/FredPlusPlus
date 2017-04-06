@@ -25,18 +25,21 @@ public class CardiovascularSystem extends System {
         ArrayList<MetricChange> changes = new ArrayList<MetricChange>();
 
         if (s.name.equals("deteriorate")){
+
+            changes.add(new MetricChange("resting_heart_rate", 1));
+
             for (Metric m : listOfMetrics){
                 if (m.getName().equals("resting_heart_rate") && m.getValue() < 30){
                     changes.add(new MetricChange("overall_health", 1));
                 }
-                else if (m.getName().equals("resting_heart_rate") && m.getValue() > 70){
-                    changes.add(new MetricChange("overall_health", 1));
+                else if (m.getName().equals("resting_heart_rate")){
+                    changes.add(new MetricChange("overall_health", -1));
                 }
             }
         }
         else if (s.name.equals("food")) {
             //changes.add(new MetricChange("blood_pressure", 10));
-            changes.add(new MetricChange("resting_heart_rate", 20));
+            changes.add(new MetricChange("resting_heart_rate", 15));
             changes.add(new MetricChange("overall_health", -5));
         }
         else if (s.name.equals("drink")) {
@@ -63,7 +66,7 @@ public class CardiovascularSystem extends System {
         }
         else if (s.name.equals("running")) {
             //changes.add(new MetricChange("blood_pressure", -10));
-            changes.add(new MetricChange("resting_heart_rate", -5));
+            changes.add(new MetricChange("resting_heart_rate", -10));
             changes.add(new MetricChange("overall_health", 5));
         }
         else if (s.name.equals("medicine")) {

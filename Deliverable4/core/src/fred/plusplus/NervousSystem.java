@@ -34,6 +34,7 @@ public class NervousSystem extends System {
         }
         else if (s.name.equals("food")) {
             changes.add(new MetricChange("happiness", 10));
+            changes.add(new MetricChange("dizziness", -5));
         }
         else if (s.name.equals("drink")) {
             changes.add(new MetricChange("dizziness", 30));
@@ -41,6 +42,8 @@ public class NervousSystem extends System {
         }
         else if (s.name.equals("homework")) {
             changes.add(new MetricChange("happiness", -20));
+            changes.add(new MetricChange("dizziness", -10));
+
         }
         else if (s.name.equals("bandage")) {
             changes.add(new MetricChange("happiness", 5));

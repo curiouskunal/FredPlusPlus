@@ -19,7 +19,7 @@ public class DigestiveSystem extends System {
         listOfMetrics.add(new Metric("hunger", 50, new Texture("Hunger.png"), true));
         listOfMetrics.add(new Metric("thirst", 50, new Texture("Thirst.png"), true));
         listOfMetrics.add(new Metric("intoxication_level", 0, new Texture("StimuliButton_Beer.png"), false));
-        listOfMetrics.add(new Metric("weight", 50, new Texture("activeDigestive.png"), false));
+        listOfMetrics.add(new Metric("weight", 50, new Texture("Weight.png"), false));
     }
 
     public ArrayList<MetricChange> reactToStimuli(Stimulus s){
@@ -29,6 +29,8 @@ public class DigestiveSystem extends System {
             changes.add(new MetricChange("intoxication_level", -1));
             changes.add(new MetricChange("hunger", -1));
             changes.add(new MetricChange("thirst", -1));
+            changes.add(new MetricChange("weight", -1));
+
             for (Metric m : listOfMetrics){
                 if (m.getName().equals("hunger") && m.getValue() < 30){
                     changes.add(new MetricChange("weight", -1));
@@ -64,12 +66,10 @@ public class DigestiveSystem extends System {
             changes.add(new MetricChange("weight", 5));
         }
         else if (s.name.equals("lift_weights")) {
-            changes.add(new MetricChange("weight", -5));
-            changes.add(new MetricChange("hunger", -10));
+            changes.add(new MetricChange("hunger", -5));
         }
         else if (s.name.equals("running")) {
-            changes.add(new MetricChange("weight", -10));
-            changes.add(new MetricChange("hunger", -10));
+            changes.add(new MetricChange("hunger", -5));
         }
 
         return changes;
