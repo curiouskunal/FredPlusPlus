@@ -22,29 +22,18 @@ public class MainActivity extends ApplicationAdapter {
     static boolean titleScreen;
     private FredPoller poller;
     private DeteriorateController deteriorateController;
+    private RandomEventRunner run;
 
     @Override
     //create() gets called once, at the start of the game launch
     public void create() {
         fred = new FredAttributeDataStore();
-        ArrayList<RandomEvent> list = new ArrayList<RandomEvent>(Arrays.asList(
-                new RandomEvent("car_crash", 5),
-                new RandomEvent("fall_down_stairs", 8),
-                new RandomEvent("panic_attack", 10),
-                new RandomEvent("burst_of_motivation", 10),
-                new RandomEvent("ebola", 1),
-                new RandomEvent("acid_reflex", 10),
-                new RandomEvent("puberty", 8),
-                new RandomEvent("twisted_ankle", 10),
-                new RandomEvent("slowed_motabolism", 10),
-                new RandomEvent("slept_on_neck", 15)));
-
-        eventGen = new RandomEventGenerator(20000, list, fred);
 
         view = new activity_main(fred);
 
         poller = new FredPoller(fred);
         deteriorateController = new DeteriorateController(fred);
+        run = new RandomEventRunner(fred);
 
         titleScreen = true;
 
@@ -53,6 +42,9 @@ public class MainActivity extends ApplicationAdapter {
 
         Thread deteriorateThread = new Thread(deteriorateController);
         deteriorateThread.start();
+
+        Thread runThread = new Thread(run);
+        runThread.start();
     }
 
     @Override
@@ -78,7 +70,6 @@ public class MainActivity extends ApplicationAdapter {
                 view.drawMetric(m);
             }
 
-            eventGen.GenerateEvent();
             fred.deteriorate();
         }
     }

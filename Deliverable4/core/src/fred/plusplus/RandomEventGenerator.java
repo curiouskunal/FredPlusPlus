@@ -23,7 +23,8 @@ public class RandomEventGenerator {
 
     FredAttributeDataStore fred;
 
-    Sound sound;
+    Sound sound0;
+    Sound sound1;
 
     public RandomEventGenerator(int PSize, ArrayList<RandomEvent> event, FredAttributeDataStore fred) {
         this.events = event;
@@ -33,7 +34,8 @@ public class RandomEventGenerator {
 
         this.probabilitySize = PSize;
 
-        sound = Gdx.audio.newSound(Gdx.files.internal("Sounds//" + "Crash.mp3"));
+        sound0 = Gdx.audio.newSound(Gdx.files.internal("Sounds//" + "Crash.mp3"));
+        sound1 = Gdx.audio.newSound(Gdx.files.internal("Sounds//" + "Crash.mp3"));
     }
 
     private void ParseEvents(int size) {
@@ -60,11 +62,10 @@ public class RandomEventGenerator {
             if (checkInterval(pick, this.probabilityIntervals[i], this.probabilityIntervals[i + 1]) &&
                     this.probabilityIntervals[i + 1] != probabilitySize) {
                 ApplyEvent(i);//return the event that has the probabilty
-                sound.play();
             }
             i++;
         }
-        //nothing happens
+        // nothing happens
     }
 
     /*ApplyEvent(e)
@@ -72,8 +73,14 @@ public class RandomEventGenerator {
     * This method iterates through the list of MetricChanges that are tied to the desired event and
     * applies them
      */
-    private void ApplyEvent(int e) {
+    public void ApplyEvent(int e) {
         fred.reactToStimuli(new Stimulus(events.get(e).getName()));
+
+        if (e == 0) {
+            sound0.play();
+        } if (e == 1) {
+            sound1.play();
+        }
     }
 
     /*  checkInterval(b,lower,higher)
