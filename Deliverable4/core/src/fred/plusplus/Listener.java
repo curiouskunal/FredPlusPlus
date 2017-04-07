@@ -17,12 +17,12 @@ public abstract class Listener extends InputAdapter {
     protected int x;
     protected int y;
 
-    public void addButton(String subSystem, String onFilename, String offFilename){
+    public void addButton(String subSystem, String onFilename, String offFilename) {
         buttons.add(new Button(x, y, subSystem, onFilename, offFilename));
         y += 200;
     }
 
-    public ArrayList<Button> getButtons(){
+    public ArrayList<Button> getButtons() {
         return buttons;
     }
 

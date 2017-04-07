@@ -10,7 +10,7 @@ public class DeteriorateController implements Runnable {
 
     private FredAttributeDataStore fred;
 
-    public DeteriorateController (FredAttributeDataStore fred) {
+    public DeteriorateController(FredAttributeDataStore fred) {
         this.fred = fred;
     }
 

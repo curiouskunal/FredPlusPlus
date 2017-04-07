@@ -22,7 +22,7 @@ public class Button {
     private Stimulus stimulus;
 
 
-    public Button(int x, int y, String subSystem, String onFileName, String offFileName){
+    public Button(int x, int y, String subSystem, String onFileName, String offFileName) {
         this.x = x;
         this.y = y;
         this.subSystem = subSystem;
@@ -34,7 +34,7 @@ public class Button {
         isActive = true;
     }
 
-    public Button(int x, int y, String subSystem, String onFileName, String offFileName, Stimulus stimulus){
+    public Button(int x, int y, String subSystem, String onFileName, String offFileName, Stimulus stimulus) {
         this.x = x;
         this.y = y;
         this.subSystem = subSystem;
@@ -47,43 +47,48 @@ public class Button {
         this.stimulus = stimulus;
     }
 
-    public int getX(){return x;}
-    public int getY(){return Gdx.graphics.getHeight() - height - y;}
+    public int getX() {
+        return x;
+    }
 
-    public boolean isOn(){
+    public int getY() {
+        return Gdx.graphics.getHeight() - height - y;
+    }
+
+    public boolean isOn() {
         return isOn;
     }
-    public boolean isActive(){
+
+    public boolean isActive() {
         return isActive;
     }
 
-    public void toggleActivate(){
+    public void toggleActivate() {
         isActive = !isActive;
     }
 
-    public String getSubSystem(){
+    public String getSubSystem() {
         return subSystem;
     }
 
-    public Texture getTexture(){
-        if (isOn && isActive){
+    public Texture getTexture() {
+        if (isOn && isActive) {
             return onImage;
-        }
-        else{
+        } else {
             return offImage;
         }
     }
 
-    public Stimulus getStimulus(){
+    public Stimulus getStimulus() {
         return stimulus;
     }
 
-    public boolean intersects(int tapX, int tapY){
+    public boolean intersects(int tapX, int tapY) {
         return (tapX >= x) && (tapX <= x + width) && (tapY >= y) && (tapY <= y + height);
     }
 
-    public void tap(){
-        if (isActive){
+    public void tap() {
+        if (isActive) {
             isOn = !isOn;
         }
     }

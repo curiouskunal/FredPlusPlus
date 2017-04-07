@@ -62,14 +62,14 @@ public class activity_main {
         stimuliListener.addButton(0, "nervous", "StimuliButton_Homework.png", "inactiveNervous.png", new Stimulus("homework", "Pencil.mp3"));
         stimuliListener.addButton(space, "nervous", "StimuliButton_Party.png", "inactiveNervous.png", new Stimulus("partying", "Party.mp3"));
 
-        stimuliListener.addButton(space*2, "cardiovascular", "StimuliButton_Treadmill.png", "inactiveCardiovascular.png", new Stimulus("running", "Treadmill.mp3"));
-        stimuliListener.addButton(space*3, "cardiovascular", "StimuliButton_Medicine.png", "inactiveCardiovascular.png", new Stimulus("medicine", "Medicine.mp3"));
+        stimuliListener.addButton(space * 2, "cardiovascular", "StimuliButton_Treadmill.png", "inactiveCardiovascular.png", new Stimulus("running", "Treadmill.mp3"));
+        stimuliListener.addButton(space * 3, "cardiovascular", "StimuliButton_Medicine.png", "inactiveCardiovascular.png", new Stimulus("medicine", "Medicine.mp3"));
 
-        stimuliListener.addButton(space*4, "digestive", "StimuliButton_Burger.png", "inactiveDigestive.png", new Stimulus("food", "Burger.mp3"));
-        stimuliListener.addButton(space*5, "digestive", "StimuliButton_Beer.png", "inactiveDigestive.png", new Stimulus("drink", "Beer.mp3"));
+        stimuliListener.addButton(space * 4, "digestive", "StimuliButton_Burger.png", "inactiveDigestive.png", new Stimulus("food", "Burger.mp3"));
+        stimuliListener.addButton(space * 5, "digestive", "StimuliButton_Beer.png", "inactiveDigestive.png", new Stimulus("drink", "Beer.mp3"));
 
-        stimuliListener.addButton(space*6, "locomotor", "StimuliButton_Exercise.png", "inactiveLocomotor.png", new Stimulus("lift_weights", "Weights.mp3"));
-        stimuliListener.addButton(space*7, "locomotor", "StimuliButton_Bandaid.png", "inactiveLocomotor.png", new Stimulus("bandage", "Bandaid.mp3"));
+        stimuliListener.addButton(space * 6, "locomotor", "StimuliButton_Exercise.png", "inactiveLocomotor.png", new Stimulus("lift_weights", "Weights.mp3"));
+        stimuliListener.addButton(space * 7, "locomotor", "StimuliButton_Bandaid.png", "inactiveLocomotor.png", new Stimulus("bandage", "Bandaid.mp3"));
 
         //This is how libGDX handles multiple different input listeners
         //Whenever a touch event happens, it will pass it to the first listener
@@ -82,20 +82,20 @@ public class activity_main {
         Gdx.input.setInputProcessor(multiplexer);
     }
 
-    public void drawBG(){
+    public void drawBG() {
         batch.begin();
         batch.draw(bg, 0, 0);
         batch.end();
         resetMetricPos();
     }
 
-    public void draw(Texture texture, int x, int y){
+    public void draw(Texture texture, int x, int y) {
         batch.begin();
         batch.draw(texture, x, y);
         batch.end();
     }
 
-    public void drawSubSystems(ArrayList<System> systems){
+    public void drawSubSystems(ArrayList<System> systems) {
         batch.begin();
         for (System sys : systems) {
             batch.draw(sys.getTexture(), 0, 0);
@@ -103,31 +103,31 @@ public class activity_main {
         batch.end();
     }
 
-    public void drawButtons(){
+    public void drawButtons() {
         batch.begin();
-        for (Button b : showListener.getButtons()){
+        for (Button b : showListener.getButtons()) {
             if (b.isActive()) {
                 batch.draw(b.getTexture(), b.getX(), b.getY());
             }
         }
-        for (Button b : toggleListener.getButtons()){
+        for (Button b : toggleListener.getButtons()) {
             batch.draw(b.getTexture(), b.getX(), b.getY());
         }
         for (Button b : stimuliListener.getButtons()) {
-            if (b.isActive()){
+            if (b.isActive()) {
                 batch.draw(b.getTexture(), b.getX(), b.getY());
             }
         }
         batch.end();
     }
 
-    private void resetMetricPos(){
+    private void resetMetricPos() {
         metricPos = 2300;
     }
 
-    public void drawMetric(Metric m){
+    public void drawMetric(Metric m) {
         int posX = 1210;
-        int width = (int)2.5*m.getValue() + 10;
+        int width = (int) 2.5 * m.getValue() + 10;
         int height = 20;
 
         batch.begin();
@@ -142,8 +142,7 @@ public class activity_main {
             } else {
                 batch.draw(red, posX, metricPos, width, height);
             }
-        }
-        else {
+        } else {
             if (m.getValue() < 30) {
                 batch.draw(green, posX, metricPos, width, height);
             } else if (m.getValue() < 70) {
@@ -156,7 +155,7 @@ public class activity_main {
         metricPos -= 95;
     }
 
-    public void drawTitlePage(Texture base, Texture clothes){
+    public void drawTitlePage(Texture base, Texture clothes) {
         batch.begin();
         batch.draw(base, 0, 0);
         batch.draw(clothes, 0, 0);
@@ -171,7 +170,7 @@ public class activity_main {
         batch.end();
     }
 
-    public void dispose () {
+    public void dispose() {
         batch.dispose();
     }
 

@@ -17,10 +17,10 @@ public class ShowSubsystemListener extends Listener {
 
     @Override
     //ignore pointer and button, those are for mouse input (right-clicking, etc)
-    public boolean touchDown (int x, int y, int pointer, int button) {
+    public boolean touchDown(int x, int y, int pointer, int button) {
 
-        for (Button b : buttons){
-            if (b.intersects(x, y)){
+        for (Button b : buttons) {
+            if (b.intersects(x, y)) {
 
                 if (b.isActive()) {
                     b.tap();

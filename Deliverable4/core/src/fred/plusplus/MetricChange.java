@@ -8,7 +8,7 @@ public class MetricChange {
     String metric;
     int delta;
 
-    public MetricChange(String metric, int delta){
+    public MetricChange(String metric, int delta) {
         this.metric = metric;
         this.delta = delta;
     }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class CardiovascularSystem extends System {
 
-    public CardiovascularSystem(){
+    public CardiovascularSystem() {
         img = new Texture("FredCardiovascular.png");
         name = "cardiovascular";
 
@@ -21,69 +21,56 @@ public class CardiovascularSystem extends System {
         listOfMetrics.add(new Metric("resting_heart_rate", 40, new Texture("HeartRate.png"), false));
     }
 
-    public ArrayList<MetricChange> reactToStimuli(Stimulus s){
+    public ArrayList<MetricChange> reactToStimuli(Stimulus s) {
         ArrayList<MetricChange> changes = new ArrayList<MetricChange>();
 
-        if (s.name.equals("deteriorate")){
+        if (s.name.equals("deteriorate")) {
 
             changes.add(new MetricChange("resting_heart_rate", 1));
 
-            for (Metric m : listOfMetrics){
-                if (m.getName().equals("resting_heart_rate") && m.getValue() < 30){
+            for (Metric m : listOfMetrics) {
+                if (m.getName().equals("resting_heart_rate") && m.getValue() < 30) {
                     changes.add(new MetricChange("overall_health", 1));
-                }
-                else if (m.getName().equals("resting_heart_rate")){
+                } else if (m.getName().equals("resting_heart_rate")) {
                     changes.add(new MetricChange("overall_health", -1));
                 }
             }
-        }
-        else if (s.name.equals("food")) {
+        } else if (s.name.equals("food")) {
             //changes.add(new MetricChange("blood_pressure", 10));
             changes.add(new MetricChange("resting_heart_rate", 15));
             changes.add(new MetricChange("overall_health", -5));
-        }
-        else if (s.name.equals("drink")) {
+        } else if (s.name.equals("drink")) {
             changes.add(new MetricChange("resting_heart_rate", -10));
             changes.add(new MetricChange("overall_health", -10));
-        }
-        else if (s.name.equals("random_injury")) {
+        } else if (s.name.equals("random_injury")) {
             //changes.add(new MetricChange("blood_pressure", 30));
             changes.add(new MetricChange("resting_heart_rate", 30));
             changes.add(new MetricChange("overall_health", -50));
-        }
-        else if (s.name.equals("partying")) {
+        } else if (s.name.equals("partying")) {
             //changes.add(new MetricChange("blood_pressure", 5));
             changes.add(new MetricChange("resting_heart_rate", 15));
             changes.add(new MetricChange("overall_health", -10));
-        }
-        else if (s.name.equals("random_depression")) {
+        } else if (s.name.equals("random_depression")) {
 
-        }
-        else if (s.name.equals("lift_weights")) {
+        } else if (s.name.equals("lift_weights")) {
             //changes.add(new MetricChange("blood_pressure", -5));
             changes.add(new MetricChange("resting_heart_rate", -5));
             changes.add(new MetricChange("overall_health", 5));
-        }
-        else if (s.name.equals("running")) {
+        } else if (s.name.equals("running")) {
             //changes.add(new MetricChange("blood_pressure", -10));
             changes.add(new MetricChange("resting_heart_rate", -10));
             changes.add(new MetricChange("overall_health", 5));
-        }
-        else if (s.name.equals("medicine")) {
+        } else if (s.name.equals("medicine")) {
             changes.add(new MetricChange("resting_heart_rate", -10));
             changes.add(new MetricChange("overall_health", 5));
-        }
-        else if (s.name.equals("ebola")) {
+        } else if (s.name.equals("ebola")) {
             changes.add(new MetricChange("resting_heart_rate", 15));
             changes.add(new MetricChange("overall_health", -20));
-        }
-        else if (s.name.equals("panic_attack")) {
+        } else if (s.name.equals("panic_attack")) {
             changes.add(new MetricChange("resting_heart_rate", 10));
-        }
-        else if (s.name.equals("fall_down_stairs")) {
+        } else if (s.name.equals("fall_down_stairs")) {
             changes.add(new MetricChange("overall_health", -10));
-        }
-        else if (s.name.equals("car_crash")) {
+        } else if (s.name.equals("car_crash")) {
             changes.add(new MetricChange("resting_heart_rate", -15));
             changes.add(new MetricChange("overall_health", -30));
         }

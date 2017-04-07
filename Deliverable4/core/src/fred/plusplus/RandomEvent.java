@@ -10,14 +10,18 @@ public class RandomEvent {
     String name;
     int probability;
 
-    public RandomEvent(String name, int probability){
+    public RandomEvent(String name, int probability) {
 
         this.name = name;
         this.probability = probability;
     }
-    public int getProbability(){
+
+    public int getProbability() {
         return this.probability;
     }
-    public String getName(){return this.name;}
+
+    public String getName() {
+        return this.name;
+    }
 
 }

@@ -10,7 +10,7 @@ public class NetResultCalc {
 
     FredAttributeDataStore fred;
 
-    public NetResultCalc(FredAttributeDataStore fred){
+    public NetResultCalc(FredAttributeDataStore fred) {
         this.fred = fred;
     }
 

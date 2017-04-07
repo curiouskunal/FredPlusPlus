@@ -11,7 +11,7 @@ public class ToggleSubsystemListener extends Listener {
     private ShowSubsystemListener show;
     private StimuliListener stim;
 
-    public ToggleSubsystemListener(FredAttributeDataStore fred, ShowSubsystemListener show, StimuliListener stim){
+    public ToggleSubsystemListener(FredAttributeDataStore fred, ShowSubsystemListener show, StimuliListener stim) {
         this.fred = fred;
         buttons = new ArrayList<Button>();
         x = 20;
@@ -22,20 +22,20 @@ public class ToggleSubsystemListener extends Listener {
 
     @Override
     //ignore pointer and button, those are for mouse input (right-clicking, etc)
-    public boolean touchDown (int x, int y, int pointer, int button) {
+    public boolean touchDown(int x, int y, int pointer, int button) {
 
-        for (Button b : buttons){
-            if (b.intersects(x, y)){
+        for (Button b : buttons) {
+            if (b.intersects(x, y)) {
 
                 b.tap();
 
-                for (System sys : fred.getActivatedSystems()){
+                for (System sys : fred.getActivatedSystems()) {
 
                 }
 
                 fred.toggleSystem(b.getSubSystem());
-                for (Button b2 : show.getButtons()){
-                    if (b2.getSubSystem().equals(b.getSubSystem())){
+                for (Button b2 : show.getButtons()) {
+                    if (b2.getSubSystem().equals(b.getSubSystem())) {
                         if (b2.isOn()) {
                             b2.tap();
                             fred.showHideSystem(b2.getSubSystem());
@@ -43,8 +43,8 @@ public class ToggleSubsystemListener extends Listener {
                         b2.toggleActivate();
                     }
                 }
-                for (Button b3 : stim.getButtons()){
-                    if (b3.getSubSystem().equals(b.getSubSystem())){
+                for (Button b3 : stim.getButtons()) {
+                    if (b3.getSubSystem().equals(b.getSubSystem())) {
                         b3.toggleActivate();
                     }
                 }

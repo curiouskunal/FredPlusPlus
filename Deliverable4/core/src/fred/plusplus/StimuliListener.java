@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by Josh on 31/03/2017.
  */
 
-public class StimuliListener extends Listener{
+public class StimuliListener extends Listener {
 
     public StimuliListener(FredAttributeDataStore fred) {
         this.fred = fred;
@@ -15,7 +15,7 @@ public class StimuliListener extends Listener{
         y = 2150;
     }
 
-    public void addButton(int x, String subSystem, String onFilename, String offFilename, Stimulus stimulus){
+    public void addButton(int x, String subSystem, String onFilename, String offFilename, Stimulus stimulus) {
         Button button = new Button(this.x + x, y, subSystem, onFilename, offFilename, stimulus);
         buttons.add(button);
 
@@ -23,10 +23,10 @@ public class StimuliListener extends Listener{
 
     @Override
     //ignore pointer and button, those are for mouse input (right-clicking, etc)
-    public boolean touchDown (int x, int y, int pointer, int button) {
+    public boolean touchDown(int x, int y, int pointer, int button) {
 
-        for (Button b : buttons){
-            if (b.intersects(x, y)){
+        for (Button b : buttons) {
+            if (b.intersects(x, y)) {
 
                 fred.reactToStimuli(b.getStimulus());
                 b.getStimulus().getSound().play(1.0f);

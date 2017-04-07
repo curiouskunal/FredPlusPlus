@@ -1,6 +1,7 @@
 package fred.plusplus;
 
 import com.badlogic.gdx.graphics.Texture;
+
 import java.util.ArrayList;
 
 /**
@@ -17,31 +18,39 @@ public abstract class System {
 
     abstract ArrayList<MetricChange> reactToStimuli(Stimulus s);
 
-    public Texture getTexture(){
+    public Texture getTexture() {
         return img;
     }
 
-    public String getName(){ return name; }
+    public String getName() {
+        return name;
+    }
 
-    public boolean getIsActivated(){
+    public boolean getIsActivated() {
         return isActivated;
     }
 
-    public boolean getIsVisible(){
+    public boolean getIsVisible() {
         return isVisible;
     }
 
-    public void toggle(){
+    public void toggle() {
         isActivated = !isActivated;
     }
 
-    public void showHide(){ isVisible = !isVisible; }
+    public void showHide() {
+        isVisible = !isVisible;
+    }
 
-    public void show(){ isVisible = true; }
+    public void show() {
+        isVisible = true;
+    }
 
-    public void hide() { isVisible = false; }
+    public void hide() {
+        isVisible = false;
+    }
 
-    public void dispose(){
+    public void dispose() {
         img.dispose();
     }
 

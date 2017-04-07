@@ -27,7 +27,7 @@ public class FredAttributeDataStore {
 
     NetResultCalc netResultCalc;
 
-    public FredAttributeDataStore(){
+    public FredAttributeDataStore() {
         fredBase = new Texture("FredBaseTemplate.png");
         fredExterior = new Texture("FredExterior.png");
 
@@ -46,39 +46,39 @@ public class FredAttributeDataStore {
         updateMetrics();
     }
 
-    public ArrayList<Metric> getMetrics(){
+    public ArrayList<Metric> getMetrics() {
         return metrics;
     }
 
-    public ArrayList<System> getActivatedSystems(){
+    public ArrayList<System> getActivatedSystems() {
         ArrayList<System> active = new ArrayList<System>();
 
-        for (System sys : subSystems){
-            if (sys.getIsActivated()){
+        for (System sys : subSystems) {
+            if (sys.getIsActivated()) {
                 active.add(sys);
             }
         }
         return active;
     }
 
-    public void reactToStimuli (Stimulus s) {
+    public void reactToStimuli(Stimulus s) {
         netResultCalc.reactToStimuli(s);
     }
 
-    public ArrayList<System> getVisibleSystems(){
+    public ArrayList<System> getVisibleSystems() {
         ArrayList<System> visible = new ArrayList<System>();
 
-        for (System sys : subSystems){
-            if (sys.getIsVisible()){
+        for (System sys : subSystems) {
+            if (sys.getIsVisible()) {
                 visible.add(sys);
             }
         }
         return visible;
     }
 
-    public void toggleSystem(String sysName){
-        for (System sys : subSystems){
-            if (sysName.equals(sys.getName())){
+    public void toggleSystem(String sysName) {
+        for (System sys : subSystems) {
+            if (sysName.equals(sys.getName())) {
                 sys.toggle();
             }
         }
@@ -86,24 +86,25 @@ public class FredAttributeDataStore {
         updateMetrics();
     }
 
-    public void showHideSystem(String sysName){
-        for (System sys : subSystems){
-            if (sysName.equals(sys.getName())){
+    public void showHideSystem(String sysName) {
+        for (System sys : subSystems) {
+            if (sysName.equals(sys.getName())) {
                 sys.showHide();
             }
         }
     }
 
-    public Texture getBaseTexture(){
+    public Texture getBaseTexture() {
         return fredBase;
     }
-    public Texture getExteriorTexture(){
+
+    public Texture getExteriorTexture() {
         return fredExterior;
     }
 
-    public void dispose(){
+    public void dispose() {
         fredBase.dispose();
-        for (System sys: subSystems) {
+        for (System sys : subSystems) {
             sys.dispose();
         }
     }
@@ -113,7 +114,7 @@ public class FredAttributeDataStore {
 
         for (System s : getActivatedSystems()) {
             for (Metric m : s.listOfMetrics) {
-                if (! hasMetric(m.getName())) {
+                if (!hasMetric(m.getName())) {
                     metrics.add(m);
                 }
             }
@@ -130,18 +131,20 @@ public class FredAttributeDataStore {
     }
 
 
-    public void deteriorate(){
+    public void deteriorate() {
         if (count >= 50) {
             reactToStimuli(new Stimulus("deteriorate"));
             count = 0;
         }
-        count ++;
+        count++;
     }
 
     public void signalDeath() {
         dead = true;
     }
 
-    public boolean dead() { return dead; }
+    public boolean dead() {
+        return dead;
+    }
 
 }

@@ -11,14 +11,16 @@ public class Stimulus {
     String name;
     Sound sound;
 
-    public Stimulus(String name, String sound){
+    public Stimulus(String name, String sound) {
         this.name = name;
-        this.sound = Gdx.audio.newSound(Gdx.files.internal("Sounds//"+sound));
+        this.sound = Gdx.audio.newSound(Gdx.files.internal("Sounds//" + sound));
     }
-    public Stimulus(String name){
+
+    public Stimulus(String name) {
         this.name = name;
     }
-    public Sound getSound(){
+
+    public Sound getSound() {
         return sound;
     }
 }

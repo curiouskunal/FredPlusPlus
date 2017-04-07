@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class DigestiveSystem extends System {
 
-    public DigestiveSystem(){
+    public DigestiveSystem() {
         img = new Texture("FredDigestive.png");
         name = "digestive";
 
@@ -22,64 +22,54 @@ public class DigestiveSystem extends System {
         listOfMetrics.add(new Metric("weight", 50, new Texture("Weight.png"), false));
     }
 
-    public ArrayList<MetricChange> reactToStimuli(Stimulus s){
+    public ArrayList<MetricChange> reactToStimuli(Stimulus s) {
         ArrayList<MetricChange> changes = new ArrayList<MetricChange>();
 
-        if (s.name.equals("deteriorate")){
+        if (s.name.equals("deteriorate")) {
             changes.add(new MetricChange("intoxication_level", -1));
             changes.add(new MetricChange("hunger", -1));
             changes.add(new MetricChange("thirst", -1));
             changes.add(new MetricChange("weight", -1));
 
-            for (Metric m : listOfMetrics){
-                if (m.getName().equals("hunger") && m.getValue() < 30){
+            for (Metric m : listOfMetrics) {
+                if (m.getName().equals("hunger") && m.getValue() < 30) {
                     changes.add(new MetricChange("weight", -1));
-                }
-                else if (m.getName().equals("hunger") && m.getValue() > 90){
+                } else if (m.getName().equals("hunger") && m.getValue() > 90) {
                     changes.add(new MetricChange("weight", 1));
                 }
             }
-        }
-        else if (s.name.equals("food")) {
+        } else if (s.name.equals("food")) {
             changes.add(new MetricChange("intoxication_level", -5));
             changes.add(new MetricChange("hunger", 15));
             changes.add(new MetricChange("thirst", -2));
             changes.add(new MetricChange("weight", 5));
-        }
-        else if (s.name.equals("drink")) {
+        } else if (s.name.equals("drink")) {
             changes.add(new MetricChange("intoxication_level", 25));
             changes.add(new MetricChange("hunger", 5));
             changes.add(new MetricChange("thirst", 25));
             changes.add(new MetricChange("weight", 2));
-        }
-        else if (s.name.equals("random_injury")) {
+        } else if (s.name.equals("random_injury")) {
             changes.add(new MetricChange("intoxication_level", 0));
             changes.add(new MetricChange("hunger", 0));
             changes.add(new MetricChange("thirst", 0));
             changes.add(new MetricChange("weight", 0));
 
-        }
-        else if (s.name.equals("partying")) {
+        } else if (s.name.equals("partying")) {
             changes.add(new MetricChange("intoxication_level", 30));
             changes.add(new MetricChange("hunger", 15));
             changes.add(new MetricChange("thirst", 15));
             changes.add(new MetricChange("weight", 5));
-        }
-        else if (s.name.equals("lift_weights")) {
+        } else if (s.name.equals("lift_weights")) {
             changes.add(new MetricChange("hunger", -5));
-        }
-        else if (s.name.equals("running")) {
+        } else if (s.name.equals("running")) {
             changes.add(new MetricChange("hunger", -5));
-        }
-        else if (s.name.equals("acid_reflex")) {
+        } else if (s.name.equals("acid_reflex")) {
             changes.add(new MetricChange("hunger", -5));
-        }
-        else if (s.name.equals("ebola")) {
+        } else if (s.name.equals("ebola")) {
             changes.add(new MetricChange("hunger", -20));
             changes.add(new MetricChange("thirst", -25));
             changes.add(new MetricChange("weight", -10));
-        }
-        else if (s.name.equals("slowed_motabolism")) {
+        } else if (s.name.equals("slowed_motabolism")) {
             changes.add(new MetricChange("weight", 20));
         }
         return changes;
